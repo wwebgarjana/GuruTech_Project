@@ -1,0 +1,100 @@
+
+.filter-section {
+  background: #f8f9fa;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+/* Heading */
+.filter-section h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Inputs and Select */
+.filter-section input,
+.filter-section select {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.filter-section input:focus,
+.filter-section select:focus {
+  border-color: #2c3e50;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.4);
+}
+
+/* Buttons */
+.filter-section button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.3s ease;
+}
+
+.filter-section button:first-of-type {
+  background: #2c3e50;
+  color: white;
+}
+
+.filter-section button:first-of-type:hover {
+  background: #2c3e50;
+}
+
+.filter-section button:last-of-type {
+  background: #6c757d;
+  color: white;
+}
+
+.filter-section button:last-of-type:hover {
+  background: #545b62;
+}
+
+/* Attendance Table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+thead {
+  background: #2c3e50;
+  color: white;
+}
+
+th, td {
+  padding: 12px 15px;
+  text-align: left;
+  font-size: 14px;
+  border-bottom: 1px solid #ddd;
+}
+
+tbody tr:hover {
+  background: #f1f9ff;
+  transition: background 0.3s ease;
+}
+
+/* Empty message */
+p {
+  font-size: 15px;
+  color: #666;
+  text-align: center;
+  margin-top: 15px;
+}

@@ -1,0 +1,41 @@
+<div class="container">
+  <h2>Student Certificates</h2>
+  <p class="message">{{ message }}</p>
+ 
+  <table>
+    <thead>
+      <tr>
+        <th>Student ID</th>
+        <th>Student Name</th>
+        <th>Email</th>
+        <th>Course</th>
+        <th>Certificate Status</th>
+        <th>Upload / Download</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let student of students">
+        <td>{{ student.studentId }}</td>
+        <td>{{ student.name }}</td>
+        <td>{{ student.email }}</td>
+        <td>{{ student.course }}</td>
+        <td>
+          <span *ngIf="student.hasCertificate" class="has-cert">✅ Uploaded</span>
+          <span *ngIf="!student.hasCertificate" class="no-cert">❌ Not Uploaded</span>
+        </td>
+        <td>
+          <input type="file" (change)="onFileSelected($event, student.studentId)">
+          <button (click)="uploadCertificate(student.studentId)">Upload</button>
+ 
+         
+          <button *ngIf="student.hasCertificate"
+                  (click)="downloadCertificate(student.studentId, student.name)">
+            Download
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+ 
+ 

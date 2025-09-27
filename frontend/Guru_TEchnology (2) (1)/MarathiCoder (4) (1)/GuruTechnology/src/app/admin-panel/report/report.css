@@ -1,0 +1,90 @@
+.report-container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #f5f7fa;
+  color: #2b4f81;
+}
+
+.report-container h2 {
+  text-align: center;
+  color:#2b4f81;
+  margin-bottom: 25px;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.filters input,
+.filters select,
+.filters button {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.export-btn {
+  background-color: #2b4f81;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.export-btn:hover {
+  background-color: #1a355a;
+}
+
+.summary-section {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.summary-card {
+  flex: 1;
+  background-color: #2b4f81;
+  color: white;
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.table-section {
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.table-section h3 {
+  color: #2b4f81;
+  margin-bottom: 10px;
+}
+
+.table-section table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-section th,
+.table-section td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  font-size: 14px;
+}
+
+.table-section th {
+  background-color: #2b4f81;
+  color: white;
+}
+
+#searchInput {
+  margin: 10px 0;
+  padding: 8px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}

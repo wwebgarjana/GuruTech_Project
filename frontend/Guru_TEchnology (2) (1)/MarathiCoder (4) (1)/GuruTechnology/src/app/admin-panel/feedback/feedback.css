@@ -1,0 +1,107 @@
+.trainer-feedback {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+.trainer-feedback h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Filter Section */
+.filter-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+.filter-section label {
+  font-weight: bold;
+  color: #555;
+}
+
+.filter-section select {
+  padding: 6px 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  min-width: 150px;
+  font-size: 14px;
+}
+
+.filter-section button {
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.filter-section button:hover {
+  background-color: #45a049;
+}
+
+.error {
+  color: red;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Feedback Cards */
+.feedback-card {
+  border: 1px solid #eee;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  background: #f9f9f9;
+  transition: box-shadow 0.3s ease;
+}
+
+.feedback-card:hover {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.feedback-card strong {
+  font-size: 16px;
+  color: #222;
+}
+
+.feedback-card .meta {
+  font-size: 13px;
+  color: #777;
+  margin: 4px 0;
+}
+
+.feedback-card .rating {
+  color: #FFD700;
+  font-size: 14px;
+  margin: 4px 0;
+}
+
+.feedback-card .lecture {
+  font-weight: bold;
+  color: #333;
+  margin: 4px 0;
+}
+
+.feedback-card .comments {
+  margin: 4px 0;
+  color: #555;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.feedback-card hr {
+  margin-top: 10px;
+  border: none;
+  border-top: 1px solid #ddd;
+}

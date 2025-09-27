@@ -1,0 +1,75 @@
+
+
+
+
+<div class="card-container">
+  <h2>Attendance</h2>
+
+  <div class="card attendance-card">
+    <!-- Batch Selection -->
+    <label for="batch">Select Batch:</label>
+    <select id="batch" [(ngModel)]="selectedBatch" (change)="onBatchOrDateChange()">
+      <option value="" disabled>Select Batch</option>
+      <option *ngFor="let batch of batches" [value]="batch">{{ batch }}</option>
+    </select>
+
+    <!-- Date Selection -->
+    <label for="date">Select Date:</label>
+    <input 
+      type="date" 
+      id="date" 
+      [(ngModel)]="selectedDate" 
+      (change)="onBatchOrDateChange()" 
+      [max]="today" 
+    />
+    <!-- Disable future dates -->
+
+    <!-- Student List -->
+    <h3 *ngIf="students.length > 0">Student List:</h3>
+    <div class="student-list" *ngIf="students.length > 0">
+      <div class="student" *ngFor="let student of students">
+        <span [ngStyle]="{'color': attendanceMap[student.studentId] === 'absent' ? 'red' : 'black'}">
+          {{ student.studentId }} - {{ student.studentName }}
+        </span>
+        <label>
+          <input type="radio" [name]="student.studentId" value="present"
+                 [(ngModel)]="attendanceMap[student.studentId]" /> Present
+        </label>
+        <label>
+          <input type="radio" [name]="student.studentId" value="absent"
+                 [(ngModel)]="attendanceMap[student.studentId]" /> Absent
+        </label>
+      </div>
+    </div>
+
+    <!-- Submit / Update button -->
+    <button class="submit-btn"
+            (click)="markAttendance()"
+            [disabled]="students.length === 0">
+      {{ attendanceAlreadyDone ? 'Update Attendance' : 'Submit Attendance' }}
+    </button>
+
+    <!-- Submitted Attendance Table -->
+    <div class="submitted-attendance" *ngIf="submittedAttendance.length > 0">
+      <h3>Submitted Attendance:</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Student ID</th>
+            <th>Name</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let att of submittedAttendance">
+            <td>{{ att.studentId }}</td>
+            <td>{{ att.studentName }}</td>
+            <td [ngStyle]="{'color': att.status === 'present' ? 'green' : 'red'}">
+              {{ att.status === 'present' ? 'Present' : 'Absent' }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

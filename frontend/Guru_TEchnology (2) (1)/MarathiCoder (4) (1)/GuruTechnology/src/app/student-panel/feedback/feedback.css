@@ -1,0 +1,80 @@
+.student-feedback {
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+.student-feedback h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.student-feedback form div {
+  margin-bottom: 15px;
+}
+
+.student-feedback label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.student-feedback input,
+.student-feedback select,
+.student-feedback textarea {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease;
+}
+
+.student-feedback input:focus,
+.student-feedback select:focus,
+.student-feedback textarea:focus {
+  border-color: #4CAF50;
+  outline: none;
+}
+
+.student-feedback textarea {
+  resize: vertical;
+}
+
+.student-feedback button {
+  background-color: #4CAF50;
+  color: #fff;
+  font-size: 15px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+
+.student-feedback button:hover:not(:disabled) {
+  background-color: #45a049;
+}
+
+.student-feedback button:disabled {
+  background-color: #9ccc9c;
+  cursor: not-allowed;
+}
+
+.student-feedback p {
+  text-align: center;
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+.student-feedback p.ng-star-inserted {
+  color: #4CAF50; /* message success color */
+}

@@ -1,0 +1,24 @@
+<div class="notes-container">
+  <h2>📚 My Course Notes</h2>
+
+  <!-- Loader -->
+  <div *ngIf="loading">⏳ Loading notes...</div>
+
+  <!-- Error -->
+  <div *ngIf="errorMsg" class="error">{{ errorMsg }}</div>
+
+  <!-- Notes List -->
+  <div class="note-card" *ngFor="let note of fetchedNotes">
+    <h3><i class="fas fa-book"></i> {{ note.title }}</h3>
+    <p><strong><i class="fas fa-file-alt"></i> Description:</strong> {{ note.description }}</p>
+    <p>
+      <strong><i class="fas fa-download"></i> Download:</strong>
+      <a [href]="note.downloadUrl" target="_blank">{{ note.fileName || ' Click to Download' }}</a>
+    </p>
+  </div>
+
+  <!-- Empty -->
+  <div *ngIf="!loading && fetchedNotes.length === 0 && !errorMsg">
+    ✅ No notes available
+  </div>
+</div>

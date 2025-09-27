@@ -1,0 +1,247 @@
+.student-profile-container {
+  padding: 30px;
+  max-width: 800px;
+  margin: auto;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+ 
+.student-profile-container h2 {
+  text-align: center;
+  font-size: 28px;
+  color: #2b4f81;
+  margin-bottom: 30px;
+}
+ 
+.profile-card {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+ 
+.profile-photo img {
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border: 3px solid#2b4f81;
+}
+ 
+.profile-info p {
+  font-size: 16px;
+  margin: 8px 0;
+  color: #34495e;
+}
+ 
+.profile-info i {
+  color:#2b4f81;
+  margin-right: 10px;
+}
+ 
+/* Next button styling */
+.next-btn {
+  display: block;
+  margin: 30px auto 0;
+  padding: 10px 25px;
+  background-color: #2b4f81;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+ 
+.next-btn:hover {
+  background-color: #2b4f81;
+}
+ 
+/* Education details */
+.education-section {
+  margin-top: 30px;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  border-left: 5px solid #2b4f81;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+ 
+.education-section h3 {
+  margin-bottom: 15px;
+  color: #2b4f81;
+  font-size: 22px;
+}
+ 
+.education-section ul {
+  padding-left: 20px;
+  color: #444;
+}
+ 
+.student-profile-container {
+  padding: 30px;
+  max-width: 900px;
+  margin: auto;
+  font-family: 'Segoe UI', sans-serif;
+}
+ 
+h2 {
+  text-align: center;
+  font-size: 28px;
+  color: #2b4f81;
+  margin-bottom: 25px;
+}
+ 
+/* Profile Card */
+.profile-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
+  background: #fff;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+ 
+.profile-photo img {
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border: 3px solid #2b4f81;
+}
+ 
+.profile-info p {
+  font-size: 15px;
+  margin: 8px 0;
+  color: #34495e;
+}
+ 
+.profile-info i {
+  color: #2b4f81;
+  margin-right: 8px;
+}
+ 
+/* Next & Back buttons */
+.button-group {
+  text-align: center;
+  margin-top: 20px;
+}
+ 
+.next-btn, .back-btn {
+  padding: 10px 25px;
+  font-size: 15px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+ 
+.next-btn {
+  background-color: #2b4f81;
+  color: #fff;
+}
+.next-btn:hover {
+  background-color: #1f365d;
+}
+ 
+.back-btn {
+  background-color: #aaa;
+  color: #fff;
+}
+.back-btn:hover {
+  background-color: #888;
+}
+ 
+/* Education Section */
+.education-section {
+  background: #fff;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  margin-top: 20px;
+}
+ 
+.education-section h3 {
+  font-size: 22px;
+  margin-bottom: 15px;
+  color: #2b4f81;
+}
+ 
+/* Education Form */
+.edu-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px 20px;
+}
+ 
+.edu-form label {
+  font-weight: 600;
+  color: #2b4f81;
+  grid-column: span 2;
+}
+ 
+.edu-form input, .edu-form select {
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  outline: none;
+  width: 100%;
+  grid-column: span 2;
+}
+ 
+.edu-buttons {
+  grid-column: span 2;
+  display: flex;
+  gap: 10px;
+}
+ 
+.edu-buttons button {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  background-color: #2b4f81;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+ 
+.edu-buttons button:hover {
+  background-color: #1f365d;
+}
+ 
+/* Saved Records Table */
+.saved-education {
+  margin-top: 25px;
+}
+ 
+.saved-education h4 {
+  margin-bottom: 10px;
+  color: #444;
+}
+ 
+.saved-education table {
+  width: 100%;
+  border-collapse: collapse;
+}
+ 
+.saved-education th,
+.saved-education td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+  font-size: 14px;
+}
+ 
+.saved-education th {
+  background: #2b4f81;
+  color: #fff;
+}
+ 
+ 

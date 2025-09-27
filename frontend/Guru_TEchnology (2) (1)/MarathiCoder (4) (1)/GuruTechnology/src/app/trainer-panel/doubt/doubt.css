@@ -1,0 +1,91 @@
+.chat-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 30px auto;
+  background-color: #f7f9fc;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.chat-container h2 {
+  margin-bottom: 15px;
+  font-size: 22px;
+  color: #2b4f81;
+  text-align: center;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #333;
+}
+
+select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+}
+
+.chat-box {
+  height: 300px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background-color: #fff;
+  padding: 10px;
+  overflow-y: auto;
+  margin-bottom: 15px;
+}
+
+.chat-box p {
+  margin: 10px 0;
+  padding: 8px 12px;
+  border-radius: 6px;
+  max-width: 80%;
+  line-height: 1.5;
+}
+
+.chat-box .student-message {
+  background-color: #e1f0ff;
+  align-self: flex-start;
+}
+
+.chat-box .trainer-message {
+  background-color: #d4edda;
+  align-self: flex-end;
+  margin-left: auto;
+}
+
+.chat-input {
+  display: flex;
+  gap: 10px;
+}
+
+.chat-input input[type="text"] {
+  flex: 1;
+  padding: 10px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.chat-input button {
+  padding: 10px 20px;
+  background-color:  #004080 ;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.chat-input button:hover {
+  background-color: #0066cc ;
+}

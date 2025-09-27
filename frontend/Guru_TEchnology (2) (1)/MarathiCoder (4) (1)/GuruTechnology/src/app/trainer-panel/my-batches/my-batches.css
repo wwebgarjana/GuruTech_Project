@@ -1,0 +1,59 @@
+.batches-container {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: #f7f9fc;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.batches-container h2 {
+  text-align: center;
+  color: #2b4f81;
+  margin-bottom: 25px;
+  font-size: 24px;
+}
+
+.batch-card {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-left: 6px solid #2b4f81;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+}
+
+.batch-card h3 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: #333;
+}
+
+.batch-card h3 span {
+  color: #2b4f81;
+}
+
+.batch-card p {
+  margin: 6px 0;
+  color: #444;
+  font-size: 15px;
+}
+
+.progress-bar {
+  display: inline-block;
+  width: 150px;
+  height: 10px;
+  background-color: #e0e0e0;
+  border-radius: 5px;
+  overflow: hidden;
+  vertical-align: middle;
+  margin-left: 10px;
+}
+
+.progress {
+  height: 100%;
+  background-color: #2b4f81;
+  display: inline-block;
+  border-radius: 5px;
+}

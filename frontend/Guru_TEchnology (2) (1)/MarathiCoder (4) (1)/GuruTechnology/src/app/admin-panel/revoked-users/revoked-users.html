@@ -1,0 +1,25 @@
+<div *ngIf="loading">Loading revoked users...</div>
+<p *ngIf="errorMsg">{{ errorMsg }}</p>
+
+<table *ngIf="!loading && revokedUsers.length > 0" class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Email</th>
+      <th>Role</th>
+      <th>Revoked By</th>
+      <th>Revoked At</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of revokedUsers">
+      <td>{{ user.originalId }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.role }}</td>
+      <td>{{ user.revokedBy }}</td>
+      <td>{{ user.revokedOn ? (user.revokedOn | date:'short') : 'N/A' }}</td>
+
+  </tbody>
+</table>
+
+<p *ngIf="!loading && revokedUsers.length === 0">No revoked users found.</p>

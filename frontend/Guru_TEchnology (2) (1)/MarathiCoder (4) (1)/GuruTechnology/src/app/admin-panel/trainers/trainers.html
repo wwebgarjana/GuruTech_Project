@@ -1,0 +1,74 @@
+<div class="trainer-container">
+  <h2>Trainer Management</h2>
+
+  <!-- Filter & Search Section -->
+  <div class="filters">
+    <input
+      type="text"
+      [(ngModel)]="searchText"
+      placeholder="Search by name or ID"
+    />
+
+    <select [(ngModel)]="selectedCourse">
+      <option value="">📘 Filter by Course</option>
+      <option value="" disabled selected>Select Course</option>
+      <option value="Java">Java Full Stack Development</option>
+      <option value="Python">Python</option>
+      <option value="Angular">Testing</option>
+      <option value="Spring Boot">Spring Boot</option>
+      <option value="React">React (Mern Stack)</option>
+    </select>
+
+    <select [(ngModel)]="selectedBatch">
+      <option value="">🏷️ Filter by Batch</option>
+      <option value="Batch A">Batch A</option>
+      <option value="Batch B">Batch B</option>
+      <option value="Batch C">Batch C</option>
+      <option value="Batch D">Batch D</option>
+    </select>
+  </div>
+
+  <!-- Trainer Table -->
+  <table class="trainer-table" *ngIf="filteredTrainers.length > 0; else noData">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Trainer Name</th>
+        <th>Assigned Courses</th>
+        <th>Assigned Batches</th>
+        <th>Total Courses</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let trainer of filteredTrainers">
+        <td>{{ trainer.trainerId }}</td>
+        <td>{{ trainer.name }}</td>
+        <td>{{ trainer.courses.join(', ') }}</td>
+        <td>{{ trainer.batches.join(', ') }}</td>
+        <td>{{ trainer.courses.length }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <ng-template #noData>
+    <p style="text-align:center; margin-top:20px;">No trainers found.</p>
+  </ng-template>
+
+  <!-- Trainer Actions -->
+  <div class="trainer-actions">
+    <button (click)="goToAddTrainer()">
+      <i class="fas fa-user-plus"></i> Add Trainer
+    </button>
+    <button (click)="goToRemoveCourse()">
+      <i class="fas fa-minus-circle"></i> Add & Remove Course(Batch)
+    </button>
+    <button (click)="goToRevokeTrainer()">
+      <i class="fas fa-user-slash"></i> Revoke Trainer
+    </button>
+
+    <!-- ✅ New Button for Revoked Users -->
+    <button (click)="goToRevokedUsers()">
+      <i class="fas fa-user-check"></i> Revoked Users
+    </button>
+  </div>
+</div>

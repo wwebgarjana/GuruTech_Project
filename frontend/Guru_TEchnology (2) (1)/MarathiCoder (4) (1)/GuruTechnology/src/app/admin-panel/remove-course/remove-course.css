@@ -1,0 +1,118 @@
+/* Container Styling */
+.container {
+  max-width: 700px;
+  margin: 30px auto;
+  padding: 25px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Heading */
+.container h2 {
+  text-align: center;
+  font-size: 22px;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 8px;
+}
+
+/* Labels */
+.form-group label {
+  display: block;
+  font-weight: 500;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  color: #34495e;
+}
+
+/* Input fields */
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #dcdcdc;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+  outline: none;
+}
+
+/* Buttons */
+.btn {
+  border-radius: 6px;
+  padding: 8px 15px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background: #3498db;
+  border: none;
+}
+
+.btn-primary:hover {
+  background: #2980b9;
+}
+
+.btn-success {
+  background: #27ae60;
+  border: none;
+}
+
+.btn-success:hover {
+  background: #1e8449;
+}
+
+.btn-danger {
+  background: #e74c3c;
+  border: none;
+}
+
+.btn-danger:hover {
+  background: #c0392b;
+}
+
+/* Message Alert */
+.alert {
+  border-radius: 6px;
+  padding: 10px 15px;
+  font-size: 14px;
+}
+
+/* Assignments Table */
+.table {
+  margin-top: 15px;
+  background: #fdfdfd;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.table th {
+  background: #3498db;
+  color: #fff;
+  text-align: center;
+  font-weight: 600;
+  padding: 10px;
+}
+
+.table td {
+  text-align: center;
+  padding: 10px;
+  vertical-align: middle;
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.table tbody tr:hover {
+  background-color: #ecf6ff;
+}

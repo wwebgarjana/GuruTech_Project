@@ -1,0 +1,52 @@
+
+
+
+
+<div class="quiz-container">
+  <h2>📘 Create Quiz (Trainer)</h2>
+
+  <form [formGroup]="quizForm" (ngSubmit)="submitQuiz()">
+    <label>Batch:</label>
+    <select formControlName="batch" required>
+      <option value="">Select Batch</option>
+      <option *ngFor="let b of assignedBatches" [value]="b">{{ b }}</option>
+    </select><br />
+
+    <label>Course:</label>
+    <select formControlName="course" required>
+      <option value="">Select Course</option>
+      <option *ngFor="let c of assignedCourses" [value]="c">{{ c }}</option>
+    </select><br />
+
+    <label>Quiz Title:</label>
+    <input type="text" formControlName="quizTitle" placeholder="Enter quiz title..." />
+
+    <label>Description:</label>
+    <textarea formControlName="quizDescription" placeholder="Brief description..."></textarea>
+
+    <div formArrayName="questions">
+      <div *ngFor="let question of questionArray.controls; let i = index" [formGroupName]="i" class="question-block">
+        <h3>Question {{ i + 1 }}</h3>
+
+        <label>Question:</label>
+        <input type="text" formControlName="questionText" placeholder="Enter question" />
+
+        <label>Marks:</label>
+        <input type="number" formControlName="marks" placeholder="Enter marks" min="1" />
+
+        <label>Options:</label>
+        <div formArrayName="options">
+          <div *ngFor="let opt of getOptions(i).controls; let j = index">
+            <input type="text" [formControlName]="j" placeholder="Option {{ j + 1 }}" />
+          </div>
+        </div>
+
+        <label>Correct Answer:</label>
+        <input type="text" formControlName="correctAnswer" placeholder="Correct answer" />
+      </div>
+    </div>
+
+    <button type="button" (click)="addQuestion()">+ Add Question</button>
+    <button type="submit">Submit Quiz</button>
+  </form>
+</div>

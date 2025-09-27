@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="left">
+    <img src="loginform.jpeg" alt="login illustration" />
+  </div>
+
+  <div class="right">
+    <h2>Login</h2>
+
+    <form (ngSubmit)="login($event)">
+      <input
+  type="text"
+  placeholder="Email"
+  [(ngModel)]="email"
+  name="email"
+  required
+/>
+
+      <input
+        type="password"
+        placeholder="Password"
+        [(ngModel)]="password"
+        name="password"
+        required
+      />
+      <div class="options">
+        <label><input type="checkbox" /> Remember me</label>
+      </div>
+    <button type="submit">Log In</button>
+   
+
+    </form>
+  </div>
+</div>

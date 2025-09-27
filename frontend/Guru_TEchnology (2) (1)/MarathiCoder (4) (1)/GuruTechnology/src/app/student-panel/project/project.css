@@ -1,0 +1,25 @@
+.project-container {
+  width: 600px;
+  margin: auto;
+  padding: 15px;
+}
+
+.project-card {
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+button {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+button:hover {
+  background: #0069d9;
+}

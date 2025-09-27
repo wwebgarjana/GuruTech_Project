@@ -1,0 +1,27 @@
+<div class="job-updates-container">
+  <h2>Job Updates</h2>
+ 
+  <!-- ✅ Search Bar -->
+  <input
+    type="text"
+    placeholder="Search jobs by title, company, course..."
+    [(ngModel)]="searchText"
+    (input)="applyFilter()"
+    class="search-bar"
+  />
+ 
+  <div *ngIf="filteredJobs.length === 0">
+    <p>No jobs available right now.</p>
+  </div>
+ 
+  <div *ngFor="let job of filteredJobs" class="job-card">
+    <h3>{{ job.title }}</h3>
+    <p><strong>Company:</strong> {{ job.companyName }}</p>
+    <p><strong>Course:</strong> {{ job.course }}</p>
+    <p><strong>Package:</strong> {{ job.salaryPackage }}</p>
+    <p><strong>Description:</strong> {{ job.description }}</p>
+    <p><strong>Posted On:</strong> {{ job.createdDate | date:'medium' }}</p>
+  </div>
+</div>
+ 
+ 

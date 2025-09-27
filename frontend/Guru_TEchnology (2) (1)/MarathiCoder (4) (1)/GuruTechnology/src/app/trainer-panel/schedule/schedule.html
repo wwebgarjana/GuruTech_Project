@@ -1,0 +1,88 @@
+
+
+<!-- <div class="trainer-container">
+  <h2>📅 Add New Class Schedule</h2>
+
+  <form (ngSubmit)="addSchedule()"> -->
+    <!-- Batch Dropdown -->
+    <!-- <label>Batch:</label>
+    <select [(ngModel)]="schedule.batch" name="batch" required>
+      <option value="">Select Batch</option>
+      <option *ngFor="let b of assignedBatches" [value]="b">{{ b }}</option>
+    </select> -->
+
+    <!-- Course Dropdown -->
+    <!-- <label>Course:</label>
+    <select [(ngModel)]="schedule.courseName" name="courseName" required>
+      <option value="">Select Course</option>
+      <option *ngFor="let c of assignedCourses" [value]="c">{{ c }}</option>
+    </select> -->
+
+    <!-- Topic Name -->
+    <!-- <label>Topic Name:</label>
+    <input type="text" [(ngModel)]="schedule.topicName" name="topicName" required /> -->
+
+    <!-- Start & End Time -->
+    <!-- <label>Start Time:</label>
+    <input type="time" [(ngModel)]="schedule.startTime" name="startTime" required step="60" /> -->
+
+    <!-- <label>End Time:</label>
+    <input type="time" [(ngModel)]="schedule.endTime" name="endTime" required step="60" /> -->
+
+    <!-- Date -->
+    <!-- <label>Date:</label>
+    <input type="date" [(ngModel)]="schedule.date" name="date" required /> -->
+
+    <!-- <button type="submit">Add Schedule</button>
+  </form> -->
+
+  <!-- <p *ngIf="message">{{ message }}</p>
+</div> -->
+
+<div class="trainer-container">
+  <h2>📅 Add New Class Schedule</h2>
+
+  <form (ngSubmit)="addSchedule()">
+    <!-- Batch Dropdown -->
+    <label>Batch:</label>
+    <select [(ngModel)]="schedule.batch" name="batch" required>
+      <option value="">Select Batch</option>
+      <option *ngFor="let b of assignedBatches" [value]="b">{{ b }}</option>
+    </select>
+
+    <!-- Course Dropdown -->
+    <label>Course:</label>
+    <select [(ngModel)]="schedule.courseName" name="courseName" required>
+      <option value="">Select Course</option>
+      <option *ngFor="let c of assignedCourses" [value]="c">{{ c }}</option>
+    </select>
+
+    <!-- Topic Name -->
+    <label>Topic Name:</label>
+    <input type="text" [(ngModel)]="schedule.topicName" name="topicName" required />
+
+    <!-- Google Meet Link -->
+    <label>Google Meet Link:</label>
+    <input type="url" [(ngModel)]="schedule.meetLink" name="meetLink" placeholder="https://meet.google.com/xyz" />
+
+    <!-- Start & End Time -->
+    <label>Start Time:</label>
+    <input type="time" [(ngModel)]="schedule.startTime" name="startTime" required step="60" />
+
+    <label>End Time:</label>
+    <input type="time" [(ngModel)]="schedule.endTime" name="endTime" required step="60" />
+
+    <!-- Date -->
+   <!-- Date -->
+<label>Date:</label>
+<input type="date" 
+       [(ngModel)]="schedule.date" 
+       name="date" 
+       required 
+       [min]="today" />
+
+    <button type="submit">Add Schedule</button>
+  </form>
+
+  <p *ngIf="message">{{ message }}</p>
+</div>

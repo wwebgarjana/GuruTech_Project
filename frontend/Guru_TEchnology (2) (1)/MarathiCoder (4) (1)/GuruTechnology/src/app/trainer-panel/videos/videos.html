@@ -1,0 +1,48 @@
+
+
+
+
+ <div class="upload-form">
+  <h2>Upload Training Video</h2>
+  <form (ngSubmit)="uploadVideo()" #videoForm="ngForm">
+
+    <label>Title</label>
+    <input
+      type="text"
+      placeholder="Title"
+      [(ngModel)]="title"
+      name="title"
+      required
+    /><br />
+    <label>Batch</label>
+<select [(ngModel)]="batch" name="batch" required>
+  <option value="">Select Batch</option>
+  <option *ngFor="let b of assignedBatches" [value]="b">{{ b }}</option>
+</select><br/>
+
+<label>Course</label>
+<select [(ngModel)]="course" name="course" required>
+  <option value="">Select Course</option>
+  <option *ngFor="let c of assignedCourses" [value]="c">{{ c }}</option>
+</select><br/>
+
+
+    <label>Description</label>
+    <textarea
+      placeholder="Description"
+      [(ngModel)]="description"
+      name="description"
+      required
+    ></textarea><br />
+
+    <label>File</label>
+    <input
+      type="file"
+      (change)="onFileChange($event)"
+      #fileInput
+      required
+    /><br />
+
+    <button type="submit">📤 Upload</button>
+  </form>
+</div>

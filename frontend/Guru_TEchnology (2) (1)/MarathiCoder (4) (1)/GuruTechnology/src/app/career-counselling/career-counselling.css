@@ -1,0 +1,421 @@
+/* General Styles */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  background: #fdfdfd;
+  color: #333;
+}
+h1, h2, h3 {
+  font-weight: 700;
+}
+.section-title {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  color: #222;
+}
+
+.hero {
+  background: linear-gradient(120deg, #ff9800, #ff5e62, #f06292);
+  color: #fff;
+  padding: 4rem 8%;
+}
+
+.hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+/* Left Text Section */
+.text-section {
+  flex: 1;
+  min-width: 280px;
+}
+
+/* Right Image Section */
+.hero-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-image img {
+  max-width: 100%;
+  width: 480px;   /* Increase image size */
+  height: auto;
+  animation: float 6s infinite ease-in-out;
+  border-radius: 12px; /* optional smooth corners */
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+/* Responsive Fix */
+@media (max-width: 768px) {
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  .hero-image img {
+    width: 80%;
+    margin-top: 1.5rem;
+  }
+}
+/* Buttons */
+.btn {
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  transition: 0.3s;
+}
+.btn.primary {
+  background: #007bff;
+  color: #fff;
+}
+.btn.secondary {
+  background: #fff;
+  color: #007bff;
+  border: 2px solid #007bff;
+}
+.btn:hover {
+  transform: scale(1.05);
+}
+
+/* Card Sections */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  padding: 0 8%;
+}
+.card {
+  background: #fffbe6;
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-8px);
+}
+
+/* Sections */
+.services, .why-us, .testimonials, .booking, .locations {
+  padding: 4rem 0;
+}
+.booking {
+  text-align: center;
+}
+.locations ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.locations li {
+  background: #ffeb99;
+  padding: 0.8rem 1.2rem;
+  border-radius: 12px;
+}
+/* Common Section */
+section {
+  padding: 60px 20px;
+  background: #fffceb; /* Light Yellow */
+  text-align: center;
+}
+
+.section-title {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  justify-items: center;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+  text-align: center;
+  max-width: 280px;
+}
+
+.card:hover {
+  transform: translateY(-8px) scale(1.03);
+}
+
+.card img {
+  width: 60px;
+  margin-bottom: 15px;
+}
+
+/* ✅ Leaf Shape Cards */
+.leaf-shapes .card {
+  border-radius: 50px 0 50px 0;
+  background: #fff2c6;
+  color: #444;
+  font-weight: bold;
+}
+
+/* ✅ Circle Images for Testimonials */
+.circle-img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 12px;
+  border: 3px solid #ffce00;
+}
+.why-us {
+  text-align: center;
+  padding: 60px 20px;
+  background: #f8fdf8;
+}
+
+.why-us .section-title {
+  font-size: 32px;
+  margin-bottom: 30px;
+  color: #222;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 25px;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-bottom: 15px;
+
+  /* ✅ Leaf Shape */
+  clip-path: ellipse(60% 75% at 50% 50%);
+}
+.booking {
+  position: relative;
+  background-image: url('/assets/counselling_contact.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 80px 20px;
+  color: #fff;
+  text-align: center;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.booking::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(113, 115, 243, 0.5); /* dark overlay for readability */
+  z-index: 1;
+}
+
+.booking .overlay {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.booking p {
+  font-size: 18px;
+  margin: 12px 0;
+  line-height: 1.5;
+}
+
+.buttons {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.btn {
+  padding: 14px 28px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.btn.primary {
+  background-color: #ff6b6b;
+  color: #fff;
+}
+
+.btn.secondary {
+  background-color: #fff;
+  color: #333;
+}
+
+.btn:hover {
+  transform: translateY(-3px) scale(1.05);
+}
+/* ========== Team Section ========== */
+.team-section {
+  text-align: center;
+  padding: 60px 10%;
+  background: linear-gradient(135deg, #f9f9f9, #eef5ff);
+  animation: fadeInUp 1s ease-in-out;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #222;
+  position: relative;
+  display: inline-block;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: #007bff;
+  margin: 8px auto 0;
+  border-radius: 2px;
+}
+
+.section-subtitle {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 40px;
+}
+
+/* Grid */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+}
+
+/* Card Base */
+.team-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.5s ease, box-shadow 0.5s ease, border-radius 0.5s ease;
+  text-align: center;
+  position: relative;
+  animation: floatUp 4s ease-in-out infinite;
+}
+
+/* Different Card Shapes */
+.team-card:nth-child(2) { border-radius: 50px 15px 15px 50px; }
+.team-card:nth-child(3) { border-radius: 15px 50px 50px 15px; }
+.team-card:nth-child(4) { border-radius: 25px 10px 40px 10px; }
+.team-card:nth-child(5) { border-radius: 10px 40px 10px 40px; }
+
+/* Hover Animation */
+.team-card:hover {
+  transform: translateY(-12px) rotate(-1deg) scale(1.05);
+  box-shadow: 0 12px 30px rgba(0, 123, 255, 0.2);
+  border-radius: 30px 15px 30px 15px;
+}
+
+/* Circular Image */
+.team-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 15px;
+  border: 3px solid #007bff;
+  transition: transform 0.5s ease;
+}
+
+.team-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.team-card:hover .team-img img {
+  transform: scale(1.2) rotate(3deg);
+}
+
+/* Text */
+.team-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 10px 0 5px;
+  color: #222;
+}
+
+.team-role {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {opacity: 0; transform: translateY(40px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+@keyframes floatUp {
+  0%, 100% { transform: translateY(0px);}
+  50% { transform: translateY(-8px);}
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .team-section {
+    padding: 40px 5%;
+  }
+  .team-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+}

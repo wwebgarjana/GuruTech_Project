@@ -1,0 +1,68 @@
+.students-container {
+  width: 90%;
+  margin: 20px auto;
+  font-family: Arial, sans-serif;
+  color: #1f3b64;
+}
+ 
+.students-container h2 {
+  text-align: center;
+  color: #1f3b64;
+  margin-bottom: 20px;
+}
+ 
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+  justify-content: space-between;
+}
+ 
+.filters input,
+.filters select {
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+ 
+.filters button {
+  background-color: #1f3b64;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+ 
+.filters button:hover {
+  background-color: #163054;
+}
+ 
+.students-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+ 
+.students-table th,
+.students-table td {
+  border: 1px solid #ccc;
+  padding: 8px 10px;
+  text-align: left;
+}
+ 
+.students-table th {
+  background-color: #1f3b64;
+  color: white;
+}
+ 
+.students-table tr:nth-child(even) {
+  background-color: #f0f4f8;
+}
+ 
+.students-table tr:hover {
+  background-color: #dbe4f0;
+}
+ 
+ 

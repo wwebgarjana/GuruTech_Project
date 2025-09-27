@@ -1,0 +1,108 @@
+<div class="trainer-profile-container" *ngIf="!loading">
+  <h2>Profile</h2>
+
+  <!-- Personal Info -->
+  <section class="section">
+    <h3><i class="fas fa-id-card"></i> Personal Information</h3>
+    <div class="info-grid">
+      <p><strong>Name:</strong> {{ trainer.name }}</p>
+      <p><strong>ID:</strong> {{ trainer.trainerId }}</p>
+      <p><strong>Email:</strong> {{ trainer.email }}</p>
+      <p><strong>Phone:</strong> {{ trainer.mobile }}</p>
+      <p><strong>Address:</strong> {{ trainer.address }}</p>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section class="section">
+    <h3>
+      <i class="fas fa-graduation-cap"></i> Education
+      <button (click)="editEducation = !editEducation">
+        {{ editEducation ? 'Cancel' : 'Edit' }}
+      </button>
+    </h3>
+
+    <!-- View Mode -->
+    <ul *ngIf="!editEducation">
+      <li *ngFor="let edu of trainer.education">{{ edu }}</li>
+    </ul>
+
+    <!-- Edit Mode -->
+    <div *ngIf="editEducation">
+      <div *ngFor="let edu of newEducation; let i = index" class="education-entry">
+        <!-- Degree Dropdown -->
+        <select [(ngModel)]="newEducation[i].type" (change)="onDegreeChange(i)">
+          <option value="" disabled>Select Degree</option>
+          <option *ngFor="let option of degreeOptions" [value]="option">
+            {{ option }}
+          </option>
+        </select>
+
+        <!-- Manual Degree Input if 'Other' selected -->
+        <input
+          *ngIf="newEducation[i].type === 'Other'"
+          [(ngModel)]="newEducation[i].customDegree"
+          (input)="saveToLocal()"
+          placeholder="Enter degree manually"
+        />
+
+        <!-- Delete Button -->
+        <button type="button" (click)="deleteEducation(i)">Delete</button>
+      </div>
+
+      <button type="button" (click)="addEducation()">Add</button>
+      <button type="button" (click)="saveEducation()">Save</button>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section class="section">
+    <h3>
+      <i class="fas fa-briefcase"></i> Experience
+      <button (click)="editExperience = !editExperience">
+        {{ editExperience ? 'Cancel' : 'Edit' }}
+      </button>
+    </h3>
+
+    <!-- View Mode -->
+    <ul *ngIf="!editExperience">
+      <li *ngFor="let exp of trainer.experience">{{ exp }}</li>
+    </ul>
+
+    <!-- Edit Mode -->
+    <div *ngIf="editExperience">
+      <div
+        *ngFor="let exp of newExperience; let i = index; trackBy: trackByIndex"
+        class="experience-entry"
+      >
+        <input
+          [(ngModel)]="newExperience[i]"
+          placeholder="Enter experience"
+          class="exp-input"
+        />
+        <button type="button" (click)="deleteExperience(i)">Delete</button>
+      </div>
+      <button type="button" (click)="addExperience()">Add</button>
+      <button type="button" (click)="saveExperience()">Save</button>
+    </div>
+  </section>
+
+  <!-- Courses and Batches Taken -->
+  <section class="section">
+    <h3><i class="fas fa-chalkboard-teacher"></i> Courses & Batches Taken</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Course</th>
+          <th>Batch Name/ID</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let b of trainer.batches">
+          <td>{{ b.course }}</td>
+          <td>{{ b.batch }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</div>

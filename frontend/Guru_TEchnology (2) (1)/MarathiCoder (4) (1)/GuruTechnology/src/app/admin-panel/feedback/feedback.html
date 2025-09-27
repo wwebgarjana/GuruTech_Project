@@ -1,0 +1,53 @@
+
+
+
+<div class="trainer-feedback">
+  <h2>Feedback </h2>
+
+  <div class="filter-section">
+    <label>Course</label>
+    <select [(ngModel)]="selectedCourse">
+      <option value="">All Courses</option>
+      <option *ngFor="let c of courses" [value]="c">{{ c }}</option>
+    </select>
+
+    <label>Batch</label>
+    <select [(ngModel)]="selectedBatch">
+      <option value="">All Batches</option>
+      <option *ngFor="let b of batches" [value]="b">{{ b }}</option>
+    </select>
+
+    <button (click)="filter()">Filter</button>
+    <button (click)="resetFilters()">Reset</button>
+  </div>
+
+  <div *ngIf="loading">Loading feedbacks...</div>
+  <div *ngIf="error" class="error">{{ error }}</div>
+
+  <div *ngIf="feedbacks.length > 0">
+    <div *ngFor="let f of feedbacks" class="feedback-card">
+      <div>
+        <strong>{{ f.studentName || 'Student' }}</strong>
+        <span *ngIf="f.studentId"> ({{ f.studentId }})</span>
+      </div>
+
+      <div class="meta">
+        <span>{{ f.course }}{{ f.batch ? ' | ' + f.batch : '' }}</span>
+        <span *ngIf="f.createdAt"> • {{ f.createdAt | date: 'short' }}</span>
+      </div>
+
+      <div class="rating">
+        <span *ngFor="let s of getNumberArray(f.rating)"><i class="fas fa-star"></i></span>
+        <span *ngFor="let s of getNumberArray(5 - (f.rating ?? 0))"><i class="far fa-star"></i></span>
+        <span> ({{ f.rating }})</span>
+      </div>
+
+      <div class="lecture">Lecture: {{ f.lectureTitle }}</div>
+      <div class="comments">{{ f.comments }}</div>
+
+      <hr />
+    </div>
+  </div>
+
+  <div *ngIf="!loading && feedbacks.length === 0">No feedback found.</div>
+</div>

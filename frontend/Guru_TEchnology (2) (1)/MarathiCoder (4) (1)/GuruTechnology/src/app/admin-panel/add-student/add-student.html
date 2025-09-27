@@ -1,0 +1,201 @@
+<div class="add-student-form">
+  <h2>Add Student</h2>
+  <form #studentForm="ngForm" (ngSubmit)="submitForm(studentForm)" novalidate>
+ 
+    <label>Student ID:</label>
+    <input type="text" name="studentId" [(ngModel)]="student.studentId" readonly />
+ 
+    <label>College ID:</label>
+    <input
+      type="text"
+      name="collegeId"
+      [(ngModel)]="student.collegeId"
+      required
+      maxlength="10"
+      pattern="^[0-9]{1,10}$"
+      (keypress)="allowOnlyDigits($event)"
+      #collegeId="ngModel"
+    />
+    <div *ngIf="collegeId.invalid && collegeId.touched" class="error">
+      College ID must be numeric and up to 10 digits
+    </div>
+ 
+    <label>Full Name:</label>
+    <input
+      type="text"
+      name="name"
+      [(ngModel)]="student.name"
+      required
+      pattern="^[A-Za-z ]+$"
+      (keypress)="allowOnlyLetters($event)"
+      #name="ngModel"
+    />
+    <div *ngIf="name.invalid && name.touched" class="error">
+      Name must contain only letters and spaces
+    </div>
+ 
+    <label>Aadhaar Number:</label>
+    <input
+      type="text"
+      name="aadhaar"
+      [(ngModel)]="student.aadhaar"
+      maxlength="12"
+      required
+      pattern="^[0-9]{12}$"
+      (keypress)="allowOnlyDigits($event)"
+      #aadhaar="ngModel"
+    />
+    <div *ngIf="aadhaar.invalid && aadhaar.touched" class="error">
+      Aadhaar must be a 12-digit number
+    </div>
+ 
+    <label>Mobile:</label>
+    <input
+      type="text"
+      name="mobile"
+      [(ngModel)]="student.mobile"
+      required
+      maxlength="10"
+      pattern="^[0-9]{10}$"
+      (keypress)="allowOnlyDigits($event)"
+      #mobile="ngModel"
+    />
+    <div *ngIf="mobile.invalid && mobile.touched" class="error">
+      Enter a valid 10-digit mobile number
+    </div>
+ 
+  <label>Birthdate:</label>
+<input
+  type="date"
+  name="birthdate"
+  [(ngModel)]="student.birthdate"
+  required
+  #birthdate="ngModel"
+/>
+<div *ngIf="birthdate.invalid && birthdate.touched" class="error">
+  <div *ngIf="birthdate.errors?.['required']">Birthdate is required</div>
+</div>
+ 
+ 
+    <label>Address:</label>
+    <textarea
+      name="address"
+      [(ngModel)]="student.address"
+      required
+      pattern="^[A-Za-z ]+$"
+      (keypress)="allowOnlyLetters($event)"
+      rows="3"
+      #address="ngModel"
+    ></textarea>
+    <div *ngIf="address.invalid && address.touched" class="error">
+      Address must contain only letters and spaces
+    </div>
+ 
+    <label>Course:</label>
+    <select name="course" [(ngModel)]="student.course" required #course="ngModel">
+      <option value="" disabled selected>Select Course</option>
+    <option value="Java">Java Full Stack Devlopement</option>
+    <option value="Python">Python </option>
+    <option value="Angular">Testing</option>
+    <option value="Spring Boot">Spring Boot</option>
+    <option value="React">React(Mern Stack)</option>
+    
+    </select>
+    <div *ngIf="course.invalid && course.touched" class="error">
+      Course is required
+    </div>
+ 
+    <label>Email:</label>
+    <input
+      type="email"
+      name="email"
+      [(ngModel)]="student.email"
+      required
+      #email="ngModel"
+    />
+    <div *ngIf="email.invalid && email.touched" class="error">
+      Valid email is required
+    </div>
+ 
+    <label>Password:</label>
+    <input type="text" name="password" [(ngModel)]="student.password" readonly />
+ 
+    <br /><br />
+    <button type="submit" [disabled]="studentForm.invalid">Submit</button>
+  </form>
+</div>
+ 
+<!-- Profile Fetch Section -->
+<div style="margin-top: 20px;">
+  <label>Search by Email:
+    <input type="email" [(ngModel)]="searchEmail" name="searchEmail" />
+  </label>
+  <button (click)="fetchProfile()">Fetch Profile</button>
+</div>
+ 
+<!-- Profile Display -->
+<div *ngIf="profile" class="profile-box">
+  <h3>Student Profile</h3>
+  <table>
+    <tr><td>Student ID:</td><td>{{ profile.studentId }}</td></tr>
+    <tr><td>College ID:</td><td>{{ profile.collegeId }}</td></tr>
+    <tr><td>Full Name:</td><td>{{ profile.name }}</td></tr>
+    <tr><td>Aadhaar:</td><td>{{ profile.aadhaar }}</td></tr>
+    <tr><td>Mobile:</td><td>{{ profile.mobile }}</td></tr>
+    <tr><td>DOB:</td><td>{{ profile.birthdate }}</td></tr>
+    <tr><td>Address:</td><td>{{ profile.address }}</td></tr>
+    <tr><td>Course:</td><td>{{ profile.course }}</td></tr>
+    <tr><td>Email:</td><td>{{ profile.email }}</td></tr>
+  </table>
+</div>
+ 
+<!-- Error Styling -->
+<style>
+  .error {
+    color: red;
+    font-size: 12px;
+  }
+ 
+  .add-student-form {
+    width: 500px;
+    margin: auto;
+    padding: 20px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    font-family: Arial, sans-serif;
+  }
+ 
+  .add-student-form label {
+    display: block;
+    margin-top: 10px;
+  }
+ 
+  .add-student-form input,
+  .add-student-form textarea,
+  .add-student-form select {
+    width: 100%;
+    padding: 6px;
+    margin-top: 4px;
+    box-sizing: border-box;
+  }
+ 
+  .profile-box {
+    width: 500px;
+    margin: 20px auto;
+    border: 1px solid #aaa;
+    padding: 15px;
+    border-radius: 6px;
+    background-color: #f9f9f9;
+  }
+ 
+  .profile-box table {
+    width: 100%;
+  }
+ 
+  .profile-box td {
+    padding: 4px;
+    vertical-align: top;
+  }
+</style>
+ 
+<!-- Profile Fetch Section -->

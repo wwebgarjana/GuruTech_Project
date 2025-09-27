@@ -1,0 +1,41 @@
+<div class="itcourses-container">
+
+  <!-- 🔹 Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Learning IT Skills is Easy and Fun 🚀</h1>
+      <p>This is a professional IT training program tailored to industry needs.</p>
+      <button class="cta-btn">Join Now</button>
+      <div class="trusted">
+        <span>🌟 Experienced Trainers</span>
+        <span>✅ 100% Practical</span>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="it-hero1.png" alt="IT Learning">
+    </div>
+  </section>
+
+  <!-- 🔹 Courses Section -->
+  <section class="courses">
+    <h2>Our IT Courses</h2>
+    <div class="courses-grid">
+      <div class="course-card" *ngFor="let course of courses">
+        <img [src]="course.image" alt="{{ course.title }}" class="course-img">
+        <div class="course-content">
+          <h3>{{ course.title }}</h3>
+          <p><b>Duration:</b> {{ course.duration }}</p>
+          <p><b>Eligibility:</b> {{ course.eligibility }}</p>
+          <ul>
+            <li *ngFor="let h of course.highlights">✅ {{ h }}</li>
+          </ul>
+          <p><b>Career Roles:</b> {{ course.roles }}</p>
+
+          <!-- ✅ Enroll Now Button -->
+          <button class="enroll-btn">Enroll Now</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>

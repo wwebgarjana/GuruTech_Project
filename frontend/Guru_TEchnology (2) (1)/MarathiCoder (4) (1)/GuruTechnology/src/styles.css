@@ -1,0 +1,37 @@
+/* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+body.disable-scroll {
+  overflow: hidden !important;
+}
+body.disable-scroll {
+  overflow: hidden !important;
+}
+/* Prevent extra scroll and layout duplication */
+html, body {
+  height: auto;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.disable-scroll {
+  overflow: hidden !important;
+}
+
+/* Avoid outer body scrollbar clash */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Prevent double scrollbars for non-dashboard pages */
+body:not(.disable-scroll) {
+  overflow-y: auto;
+}
+
+/* Scroll disable for dashboards (already done) */
+body.disable-scroll {
+  overflow: hidden !important;
+}

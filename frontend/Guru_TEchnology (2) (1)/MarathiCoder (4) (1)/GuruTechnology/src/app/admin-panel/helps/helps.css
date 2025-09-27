@@ -1,0 +1,84 @@
+.admin-help-container {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(43, 79, 129, 0.1);
+  font-family: 'Segoe UI', sans-serif;
+  color: #2b4f81;
+}
+
+.admin-help-container h2 {
+  text-align: center;
+  color:#2b4f81;
+  margin-bottom: 25px;
+}
+
+.faq-section, .support-ticket, .contact-info {
+  margin-bottom: 30px;
+  padding: 15px;
+  border: 1px solid #2b4f81;
+  border-radius: 10px;
+}
+
+.faq-section ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.faq-section li {
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+
+.support-ticket label {
+  display: block;
+  margin: 10px 0 5px;
+  font-weight: bold;
+}
+
+.support-ticket select, .support-ticket textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.support-ticket button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #2b4f81;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.support-ticket button:hover {
+  background-color: #23406b;
+}
+
+.contact-info p {
+  margin: 10px 0;
+}
+
+.chat-box {
+  text-align: center;
+  margin-top: 25px;
+}
+
+.chat-btn {
+  padding: 10px 25px;
+  font-size: 16px;
+  background-color: #2b4f81;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.chat-btn:hover {
+  background-color: #1f3b66;
+}

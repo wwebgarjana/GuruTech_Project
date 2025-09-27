@@ -1,0 +1,122 @@
+
+
+
+
+<!-- Trainer/Admin Navbar -->
+<nav class="navbar">
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+
+  <div class="main-head">
+    <div class="logo-section">
+      <img src="logo.png" alt="Logo" class="logo" />
+      <span class="brand-title">Guru Technology</span>
+
+      <!-- 🔍 Search bar -->
+      <div class="search-wrapper">
+        <input type="text" class="search-input" placeholder="Search..." />
+        <i class="fas fa-search search-icon"></i>
+      </div>
+    </div>
+
+    <!-- Header content -->
+    <div class="header">
+      <div class="header-icons">
+       
+
+
+<!-- Notification -->
+<div class="notification-wrapper" (click)="toggleNotifications()">
+  <i class="fa fa-bell notification-icon"></i>
+  <span *ngIf="unreadCount > 0" class="dot">{{ unreadCount }}</span>
+
+  <ul class="notification-dropdown" *ngIf="showNotifications">
+    <li *ngIf="notifications.length === 0" class="empty">No notifications</li>
+    <ng-container *ngFor="let n of notifications">
+      <li *ngIf="!n.readStatus" 
+          (click)="markAsRead(n.id)" 
+          class="notification-item">
+        <strong>{{ n.message }}</strong><br>
+        <small>{{ n.createdAt | date:'short' }}</small>
+      </li>
+    </ng-container>
+  </ul>
+</div>
+
+
+        <!-- User Menu -->
+        <li class="user-menu">
+          <details class="user-menu-details">
+            <summary class="user-menu-summary">
+              <i class="fa fa-user"></i> <i class="fa fa-caret-down"></i>
+            </summary>
+            <ul class="user-menu-dropdown">
+              <li>{{ userEmail }}</li>
+              <li (click)="logout()">Logout</li>
+            </ul>
+          </details>
+        </li>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ✅ Added missing wrapper div -->
+<div class="layout-container" style="display: flex;">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <p class="menu-title"><strong>ADMIN</strong></p>
+    <ul class="menu-list">
+      <li routerLink="/admin-panel/dashboard/home" routerLinkActive="active-link">
+        <i class="fas fa-tachometer-alt"></i> Dashboard
+      </li>
+
+      <li class="dropdown">
+        <details>
+          <summary class="dropdown-header">
+            <i class="fas fa-users-cog"></i> Manage Profiles <i class="fas fa-caret-down"></i>
+          </summary>
+          <ul class="dropdown-menu">
+            <li routerLink="/admin-panel/dashboard/students" routerLinkActive="active-link">
+              <i class="fas fa-user-cog"></i> Students
+            </li>
+            <li routerLink="/admin-panel/dashboard/trainers" routerLinkActive="active-link">
+              <i class="fas fa-user-tie"></i> Trainers
+            </li>
+          </ul>
+        </details>
+      </li>
+
+      <li routerLink="/admin-panel/dashboard/course-manage" routerLinkActive="active-link">
+        <i class="fas fa-book"></i> Manage Courses
+      </li>
+
+      <li routerLink="/admin-panel/dashboard/placement" routerLinkActive="active-link">
+        <i class="fas fa-briefcase"></i> Placement
+      </li>
+
+      <li routerLink="/admin-panel/dashboard/certification" routerLinkActive="active-link">
+        <i class="fas fa-certificate"></i> Certifications
+      </li>
+
+      <li routerLink="/admin-panel/dashboard/feedback" routerLinkActive="active-link">
+        <i class="fas fa-comment-dots"></i> Feedback
+      </li>
+
+      <li routerLink="/admin-panel/dashboard/payment" routerLinkActive="active-link">
+        <i class="fas fa-credit-card"></i> Payments
+      </li>
+
+      <li routerLink="/admin-panel/dashboard/helps" routerLinkActive="active-link">
+        <i class="fas fa-life-ring"></i> Help
+      </li>
+    </ul>
+  </aside>
+
+  <!-- Router View (Content) -->
+  <div class="content" style="flex: 1; padding: 20px;">
+    <router-outlet></router-outlet>
+  </div>
+</div>

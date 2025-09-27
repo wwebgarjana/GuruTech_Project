@@ -1,0 +1,18 @@
+<div class="certification-container">
+  <h2> My Certifications</h2>
+  <p *ngIf="message" class="message">{{ message }}</p>
+ 
+  <ul>
+    <li *ngFor="let cert of certificates" class="certificate-card">
+      <h3><i class="fa-solid fa-book-open"></i> {{ cert.course }}</h3>
+      <p>
+        <i class="fa-solid fa-calendar-days"></i>
+        <strong>Issued on:</strong> {{ cert.issueDate }}
+      </p>
+      <a [href]="cert.certificateUrl" download target="_blank" class="download-btn">
+        <i class="fa-solid fa-download"></i> Download Certificate
+      </a>
+    </li>
+  </ul>
+</div>
+ 

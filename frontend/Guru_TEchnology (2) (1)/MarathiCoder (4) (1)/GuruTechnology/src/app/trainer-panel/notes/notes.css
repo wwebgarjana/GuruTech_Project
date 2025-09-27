@@ -1,0 +1,70 @@
+.notes-upload-form {
+  max-width: 500px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.notes-upload-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+/* Batch & Course Dropdowns */
+.notes-upload-form select {
+  width: 100%;
+  padding: 10px 15px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  background-color: #fff;
+  box-sizing: border-box;
+  appearance: none; /* removes default arrow in some browsers */
+  cursor: pointer;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.notes-upload-form select:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  outline: none;
+}
+
+
+.notes-upload-form input[type="text"],
+.notes-upload-form textarea,
+.notes-upload-form input[type="file"] {
+  width: 100%;
+  padding: 10px 15px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.notes-upload-form textarea {
+  height: 100px;
+  resize: vertical;
+}
+
+.notes-upload-form button {
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.notes-upload-form button:hover {
+  background-color: #0056b3;
+}

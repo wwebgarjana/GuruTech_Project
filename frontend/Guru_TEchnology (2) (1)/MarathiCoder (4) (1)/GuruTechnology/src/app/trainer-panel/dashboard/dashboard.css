@@ -1,0 +1,395 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+ 
+}
+
+.dashboard-container {
+  display: flex;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  background-color: #f6f7fb;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-right: 1px solid #ddd;
+  
+   
+}
+
+
+.sidebar .profile {
+  text-align: center;
+}
+
+.sidebar .logo {
+  width: 80px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.sidebar ul {
+  list-style: none;
+  margin-top: 20px;
+}
+
+.sidebar ul li {
+  padding: 10px 0;
+  color: #333;
+  cursor: pointer;
+}
+
+.sidebar ul li.active {
+  color: #2b6cb0;
+  font-weight: bold;
+}
+
+.logout-btn {
+  background-color: #ffe6e6;
+  border: none;
+  padding: 10px;
+  color: #ff3333;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  background: #fff;
+  margin-left: 20px;
+
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2962ff;
+  color: white;
+  padding: 15px 20px;
+  font-family: Arial, sans-serif;
+ 
+   
+   
+}
+
+.header-icons {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.notification-icon {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.user-icon {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+
+.header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Adjust to flex-start or center if needed */
+  margin: 20px;
+  
+}
+
+.welcome-text {
+  font-weight: bold;
+   /* Reset default margin to align neatly */
+}
+
+.add-btn {
+  padding: 10px 15px;
+  background-color: #2962ff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 660px;
+}
+
+
+
+
+/* Sidebar Logo Section */
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.logo-container .logo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.logo-container .site-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #000;
+  line-height: 1.2;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+
+nav ul li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  font-size: 16px;
+}
+
+nav ul li i {
+  width: 20px;
+  text-align: center;
+}
+
+.dropdown summary {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+  list-style: none;
+  padding: 0px;
+  border-radius: 5px;
+}
+
+.dropdown summary::-webkit-details-marker {
+  display: none; /* Hides default arrow */
+}
+
+.dropdown-menu {
+  list-style: none;
+  margin: 0px 0 0 20px;
+  padding: 0;
+}
+
+.dropdown-menu li {
+  padding: 5px 0;
+}
+
+.dropdown-menu li a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* .dropdown-menu li a:hover {
+  color: #070707;
+} */
+
+.user-menu {
+  position: relative;
+  list-style: none;
+}
+
+.user-menu-details {
+  position: relative;
+}
+
+.user-menu-summary {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  gap: 6px;
+}
+
+.user-menu-summary::-webkit-details-marker {
+  display: none;
+}
+
+.user-menu-dropdown {
+  list-style: none;
+  margin: 0;
+  padding: 5px 0;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: white;
+  border: 1px solid #ccc;
+  width: 280px;
+  z-index: 999;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.user-menu-dropdown li {
+  padding: 8px 12px;
+  cursor: pointer;
+  color: #1c1c1d;              /* Blue color */
+  font-weight: 500;
+  transition: background 0.2s, color 0.2s;
+}
+
+.user-menu-dropdown li:hover {
+  background-color: #e6f0ff;   /* Light blue hover */
+  color: #101111;              /* Darker blue on hover */
+}
+
+.user-menu-dropdown li i {
+  margin-right: 8px;
+  color: #262627;
+
+}
+/* Fix sidebar to left */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  z-index: 1000; /* ensures it's on top */
+  overflow-y: auto;
+}
+
+/* Add margin to main content so it doesn't go under fixed sidebar */
+.main-content {
+  margin-left: 250px; /* same as sidebar width */
+  overflow-y: auto;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Fix top navbar */
+.header {
+  position: fixed;
+  top: 0;
+  left: 250px; /* sidebar width */
+  right: 0;
+  z-index: 1001;
+}
+
+/* Add margin-top to push content below fixed header */
+.header-row,
+.welcome-text,
+.add-btn,
+router-outlet {
+  margin-top: 80px; /* header height + some spacing */
+}
+/* Fix Welcome Trainers + Add Button just below the fixed navbar */
+.header-row {
+  height: 65px; /* Optional spacer for layout */
+}
+
+/* Container to hold both Welcome text and Add button side by side */
+.welcome-text,
+.add-btn {
+  position: fixed;
+  top: 65px; /* just below your fixed .header */
+  z-index: 999;
+}
+
+/* Align side by side */
+.welcome-text {
+  left: 250px; /* align after sidebar */
+  font-size: 20px;
+  padding: 10px 15px;
+}
+
+.add-btn {
+  right: 30px;
+  padding: 8px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+
+/* Removed hover effect */
+/* li:hover {
+  background-color: #e0eaff;
+} */
+
+.notification-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.notification-icon {
+  font-size: 20px;
+  cursor: pointer;
+  color: #f3f0f0;
+  transition: color 0.3s ease;
+}
+
+.notification-icon:hover {
+  color: #424344;
+}
+
+.dot {
+  background: red;
+  color: white;
+  font-size: 12px;
+  padding: 0 5px;
+  border-radius: 50%;
+  position: absolute;
+  top: -6px;
+  right: -8px;
+}
+
+.notification-dropdown {
+  position: absolute;
+  top: 28px;
+  right: 0;
+  width: 300px;
+  max-height: 350px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  z-index: 1000;
+}
+
+.notification-item {
+  padding: 12px 15px;
+  border-bottom: 1px solid #f0f0f0;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.notification-item:hover {
+  background: #f8f9fa;
+}
+
+.notification-item strong {
+  color: #333;
+}
+
+.notification-item small {
+  display: block;
+  margin-top: 5px;
+  color: #777;
+  font-size: 12px;
+}
+
+.empty {
+  text-align: center;
+  padding: 15px;
+  color: #999;
+  font-style: italic;
+}
+

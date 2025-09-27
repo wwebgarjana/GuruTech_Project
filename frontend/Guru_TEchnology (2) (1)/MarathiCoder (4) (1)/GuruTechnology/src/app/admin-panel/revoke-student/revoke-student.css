@@ -1,0 +1,60 @@
+.revoke-access-form {
+  max-width: 400px;
+  margin: auto;
+}
+ 
+.revoke-access-form input,
+.revoke-access-form button {
+  width: 100%;
+  padding: 8px;
+  margin-top: 10px;
+  box-sizing: border-box;
+}
+.revoke-access-form {
+  max-width: 450px;
+  margin: 40px auto;
+  padding: 30px;
+  border-radius: 10px;
+  background-color: #f7f9fc;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+ 
+.revoke-access-form h2 {
+  text-align: center;
+  color: #2b4f81;
+  margin-bottom: 20px;
+}
+ 
+.revoke-access-form label {
+  display: block;
+  margin-bottom: 6px;
+  color: #333;
+  font-weight: 600;
+}
+ 
+.revoke-access-form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+ 
+.revoke-access-form button {
+  width: 100%;
+  padding: 12px;
+  background-color: #d9534f;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+ 
+.revoke-access-form button:hover {
+  background-color: #c9302c;
+}
