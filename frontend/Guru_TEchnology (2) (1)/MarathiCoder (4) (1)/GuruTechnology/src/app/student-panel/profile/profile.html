@@ -1,0 +1,152 @@
+ 
+<div class="student-profile-container" *ngIf="student; else notFound">
+  <h2> Student Profile</h2>
+ 
+  <!-- Student Section -->
+  <div *ngIf="section === 'student'" class="profile-card">
+    <div class="profile-photo">
+      <!-- Profile Image -->
+      <img
+        [src]="profileImageUrl || 'assets/images/default-user.png'"
+        alt="Student Photo"
+        width="150"
+        height="150"
+        class="student-photo"
+      />
+      <br />
+ 
+      <!-- Upload Input -->
+      <input
+        type="file"
+        (change)="onFileSelected($event)"
+        accept=".jpg,.jpeg,.png"
+      />
+    </div>
+ 
+    <div class="profile-info">
+      <p><strong>Name:</strong> {{ student?.name }}</p>
+      <p><strong>Email:</strong> {{ student?.email }}</p>
+      <p><strong>Mobile:</strong> {{ student?.mobile }}</p>
+      <p><strong>Student ID:</strong> {{ student?.studentId }}</p>
+      <p><strong>College ID:</strong> {{ student?.collegeId }}</p>
+      <p><strong>Date of Birth:</strong> {{ student?.birthdate }}</p>
+      <p><strong>Address:</strong> {{ student?.address }}</p>
+      <p><strong>Course:</strong> {{ student?.course }}</p>
+      <p><strong>Status:</strong> {{ student?.status || 'Active' }}</p>
+    </div>
+ 
+    <div class="button-group">
+      <button class="next-btn" (click)="goToSection('education')">Next →</button>
+    </div>
+  </div>
+ 
+  <!-- Education Section -->
+  <div *ngIf="section === 'education'" class="education-section">
+    <h3> Education Details</h3>
+ 
+    <form (ngSubmit)="handleSubmit()" class="edu-form">
+      <label>Email</label>
+      <input name="email" [(ngModel)]="formEmail" placeholder="Your Email" required />
+<label>Qualification</label>
+    <select
+      name="qualification"
+      [(ngModel)]="formData.qualification"
+      (change)="handleChange($event, 'qualification')"
+    >
+      <option value="">Select Qualification</option>
+      <option *ngFor="let q of qualificationOptions" [value]="q">{{ q }}</option>
+    </select>
+      <label>Course/Specialization</label>
+      <input
+        name="major"
+        [(ngModel)]="formData.major"
+        (input)="handleChange($event, 'major')"
+        (keypress)="allowOnlyLetters($event)"
+        placeholder="Course/Specialization"
+      />
+ 
+      <label>Institute</label>
+      <input
+        name="institute"
+        [(ngModel)]="formData.institute"
+        (input)="handleChange($event, 'institute')"
+        (keypress)="allowOnlyLetters($event)"
+        placeholder="Institute"
+      />
+ 
+      <label>University</label>
+      <input
+        name="university"
+        [(ngModel)]="formData.university"
+        (input)="handleChange($event, 'university')"
+        (keypress)="allowOnlyLetters($event)"
+        placeholder="University"
+      />
+ 
+      <label>Passing Year</label>
+      <input
+        name="year"
+        [(ngModel)]="formData.year"
+        (input)="handleChange($event, 'year')"
+        (keypress)="allowOnlyDigits($event)"
+        maxlength="4"
+        placeholder="Passing Year"
+      />
+ 
+      <label>CGPA / %</label>
+      <input
+        name="cgpa"
+        [(ngModel)]="formData.cgpa"
+        (input)="handleChange($event, 'cgpa')"
+        (keypress)="allowOnlyDigits($event)"
+        placeholder="CGPA / %"
+      />
+ 
+      <div class="edu-buttons">
+        <button type="submit">Save</button>
+        <button type="button" (click)="handleAddMore()">➕ Add More</button>
+      </div>
+    </form>
+ 
+    <!-- Saved education list -->
+    <div *ngIf="educationList.length > 0" class="saved-education">
+      <h4>📄 Saved Records</h4>
+      <table>
+        <thead>
+          <tr>
+            <th>Qualification</th>
+            <th>Major</th>
+            <th>Institute</th>
+            <th>University</th>
+            <th>Year</th>
+            <th>CGPA</th>
+            <th>Type</th>
+            <th>Certifications</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let edu of educationList">
+            <td>{{ edu.qualification }}</td>
+            <td>{{ edu.major }}</td>
+            <td>{{ edu.institute }}</td>
+            <td>{{ edu.university }}</td>
+            <td>{{ edu.year }}</td>
+            <td>{{ edu.cgpa }}</td>
+            <td>{{ edu.type }}</td>
+            <td>{{ edu.certifications || 'N/A' }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+ 
+    <div class="button-group">
+      <button class="back-btn" (click)="goToSection('student')">← Back</button>
+    </div>
+  </div>
+</div>
+ 
+<ng-template #notFound>
+  <p style="color: red;">{{ errorMsg || 'Student not found!' }}</p>
+</ng-template>
+ 
+ 

@@ -1,0 +1,163 @@
+.add-student-form {
+  max-width: 500px;
+  margin: 30px auto;
+  background-color: #f5f7fa;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #ccc;
+}
+ 
+.add-student-form h2 {
+  text-align: center;
+  color: #2b4f81;
+  margin-bottom: 20px;
+}
+body {
+  font-family: Arial;
+  background-color: #f4f4f4;
+}
+ 
+.add-student-form {
+  width: 400px;
+  margin: 30px auto;
+  padding: 20px;
+  background: #fff;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+}
+ 
+h2 {
+  text-align: center;
+}
+ 
+label {
+  display: block;
+  margin-top: 10px;
+}
+ 
+input, textarea, select, button {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  box-sizing: border-box;
+}
+ 
+button {
+  margin-top: 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+ 
+button:hover {
+  background-color: #0056b3;
+}
+ 
+input[readonly] {
+  background-color: #f5f5f5;
+}
+ 
+.add-student-form label {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+}
+ 
+.add-student-form input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+ 
+.add-student-form button {
+  margin-top: 20px;
+  width: 100%;
+  padding: 10px;
+  background-color: #2b4f81;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+ 
+.add-student-form button:hover {
+  background-color: #1f3a60;
+}
+.add-student-form {
+  max-width: 500px;
+  margin: 30px auto;
+  background-color: #f5f7fa;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #ccc;
+}
+ 
+.add-student-form h2 {
+  text-align: center;
+  color: #2b4f81;
+  margin-bottom: 20px;
+}
+ 
+.add-student-form label {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+}
+.profile-table {
+  margin-top: 20px;
+}
+ 
+.profile-table table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #f9f9f9;
+}
+ 
+.profile-table th {
+  background-color: #e0e0e0;
+  text-align: left;
+}
+input.ng-invalid.ng-touched,
+textarea.ng-invalid.ng-touched,
+select.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+ 
+ 
+.profile-table th,
+.profile-table td {
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+ 
+ 
+.add-student-form input,
+.add-student-form textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+ 
+.add-student-form button {
+  margin-top: 20px;
+  width: 100%;
+  padding: 10px;
+  background-color: #2b4f81;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+ 
+.add-student-form button:hover {
+  background-color: #1f3a60;
+}

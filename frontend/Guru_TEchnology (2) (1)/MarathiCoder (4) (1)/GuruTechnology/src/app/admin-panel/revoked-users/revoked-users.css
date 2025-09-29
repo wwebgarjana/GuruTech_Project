@@ -1,0 +1,87 @@
+/* Overall container padding */
+:host {
+  display: block;
+  padding: 1.5rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #f5f6fa;
+  color: #333;
+}
+
+/* Loading & error messages */
+div[ng-reflect-ng-if], p[ng-reflect-ng-if] {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* Table wrapper for responsiveness */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Header */
+.table thead {
+  background-color: #0078d4;           /* MS blue */
+  color: #fff;
+  text-align: left;
+}
+
+.table th {
+  padding: 12px 16px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+}
+
+/* Body rows */
+.table td {
+  padding: 12px 16px;
+  border-top: 1px solid #e1e1e1;
+  vertical-align: middle;
+}
+
+/* Hover effect */
+.table tbody tr:hover {
+  background-color: #f0f7ff;
+  transition: background 0.2s ease;
+}
+
+/* Responsive: stack on small screens */
+@media (max-width: 600px) {
+  .table thead {
+    display: none;
+  }
+  .table,
+  .table tbody,
+  .table tr,
+  .table td {
+    display: block;
+    width: 100%;
+  }
+  .table tr {
+    margin-bottom: 1rem;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    border-radius: 6px;
+    overflow: hidden;
+    background: #fff;
+  }
+  .table td {
+    text-align: right;
+    padding-left: 50%;
+    position: relative;
+  }
+  .table td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 16px;
+    width: 45%;
+    padding-right: 10px;
+    font-weight: 600;
+    text-align: left;
+    color: #555;
+  }
+}

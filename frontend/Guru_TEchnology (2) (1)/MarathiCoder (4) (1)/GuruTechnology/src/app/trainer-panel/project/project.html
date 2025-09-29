@@ -1,0 +1,84 @@
+
+
+<div class="projects-upload-form">
+  <h2>Upload / Assign Project</h2>
+
+  <form (ngSubmit)="submitProject()" [formGroup]="projectForm">
+   <label>Batch</label>
+<select formControlName="batch" required>
+  <option value="">Select Batch</option>
+  <option *ngFor="let b of assignedBatches" [value]="b">{{ b }}</option>
+</select><br/>
+
+<label>Course</label>
+<select formControlName="course" required>
+  <option value="">Select Course</option>
+  <option *ngFor="let c of assignedCourses" [value]="c">{{ c }}</option>
+</select><br/>
+
+    <label>Description</label>
+    <textarea formControlName="description" placeholder="Project description" required></textarea><br/>
+
+    <!-- <label>Tech Stack</label>
+    <input type="text" formControlName="techStack" placeholder="Tech stack (optional)"/><br/> -->
+
+  <label>Due Date</label>
+<input type="date" formControlName="assignedDate" [min]="today" required/><br/>
+
+
+    <label>Project File</label>
+    <input type="file" (change)="onFileChange($event)" #fileInput required/><br/>
+
+    <button type="submit">Upload Project</button>
+  </form>
+</div>
+
+
+
+<!-- <div class="projects-container">
+  <h2>📘 Submitted Projects</h2>
+
+  <div class="project-card" *ngFor="let project of submittedProjects">
+    <h3>📂 {{ project.course }} - {{ project.batch }}</h3>
+
+    <p><strong>Description:</strong> {{ project.description }}</p>
+    <p><strong>Assigned Date:</strong> {{ project.assignedDate }}</p>
+    <p><strong>Status:</strong> {{ project.status }}</p> -->
+
+    <!-- Download Submission File -->
+    <!-- <p *ngIf="project.submissionFileName || project.submissionFileUrl">
+      <strong>Submitted File:</strong>
+      <a [href]="project.submissionFileUrl ? project.submissionFileUrl : ('http://localhost:8082/api/projects/' + project.id + '/download/submission')"
+         target="_blank" rel="noopener">
+        {{ project.submissionFileName ? project.submissionFileName : 'View File' }}
+      </a>
+    </p>
+
+
+  </div>
+</div> -->
+<div class="projects-container">
+  <h2>📘 Submitted Projects</h2>
+
+  <div class="project-card" *ngFor="let project of submittedProjects">
+    <h3>📂 {{ project.course }} - {{ project.batch }}</h3>
+
+    <p><strong>Description:</strong> {{ project.description }}</p>
+    <p><strong>Assigned Date:</strong> {{ project.assignedDate }}</p>
+    <p><strong>Status:</strong> {{ project.status }}</p>
+
+    <!-- ✅ Student Info -->
+    <p><strong>Student ID:</strong> {{ project.studentId }}</p>
+
+    <p><strong>Email:</strong> {{ project.studentEmail }}</p>
+
+    <!-- Download Submission File -->
+    <p *ngIf="project.submissionFileName || project.submissionFileUrl">
+      <strong>Submitted File:</strong>
+      <a [href]="project.submissionFileUrl ? project.submissionFileUrl : ('http://localhost:8082/api/projects/' + project.id + '/download/submission')"
+         target="_blank" rel="noopener">
+        {{ project.submissionFileName ? project.submissionFileName : 'View File' }}
+      </a>
+    </p>
+  </div>
+</div>

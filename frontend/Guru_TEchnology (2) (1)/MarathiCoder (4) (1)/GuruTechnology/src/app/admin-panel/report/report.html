@@ -1,0 +1,109 @@
+<!-- summary-report.component.html -->
+<div class="report-container">
+  <h2> Reports </h2>
+
+  <div class="filters">
+    <input type="text" placeholder="Search by ID, Name..." />
+    <select>
+      <option>All Courses</option>
+      <option>Java FullStack</option>
+      <option>Data Science</option>
+    </select>
+    <select>
+      <option>All Trainers</option>
+      <option>Mr. Sharma</option>
+      <option>Ms. Gupta</option>
+    </select>
+    <select>
+      <option>All Batches</option>
+      <option>Batch A</option>
+      <option>Batch B</option>
+    </select>
+    <input type="date" />
+    <input type="date" />
+    <button class="export-btn"><i class="fas fa-file-excel"></i> Export to Excel</button>
+    <button class="export-btn"><i class="fas fa-file-pdf"></i> Export to PDF</button>
+  </div>
+
+  <div class="summary-section">
+    <div class="summary-card blue">
+      <h3><i class="fas fa-calendar-check"></i> Attendance Summary</h3>
+      <p>Total Present: 345</p>
+      <p>Total Absent: 57</p>
+      <p>Avg. Attendance: 86%</p>
+    </div>
+
+    <div class="summary-card green">
+      <h3><i class="fas fa-book"></i> Course Progress</h3>
+      <p>Java FS: 80%</p>
+      <p>Python: 65%</p>
+      <p>React: 72%</p>
+    </div>
+
+    <div class="summary-card dark">
+      <h3><i class="fas fa-rupee-sign"></i> Financial Report</h3>
+      <p>Monthly Revenue: ₹2.5L</p>
+      <p>Yearly Revenue: ₹28L</p>
+      <p>Pending Fees: ₹60K</p>
+    </div>
+  </div>
+
+  <div class="table-section">
+    <h3><i class="fas fa-file-alt"></i> Detailed Student Report</h3>
+    <input type="text" id="searchInput" placeholder="🔍 Search students..." onkeyup="searchTable()" />
+    <table id="studentTable">
+      <thead>
+        <tr>
+          <th>Student ID</th>
+          <th>Name</th>
+          <th>Course</th>
+          <th>Batch</th>
+          <th>Trainer</th>
+          <th>Attendance %</th>
+          <th>Fee Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>ST123</td>
+          <td>Rohit Sharma</td>
+          <td>Java FullStack</td>
+          <td>Batch A</td>
+          <td>Mr. Sharma</td>
+          <td>88%</td>
+          <td>Paid</td>
+        </tr>
+        <tr>
+          <td>ST456</td>
+          <td>Neha Singh</td>
+          <td>Data Science</td>
+          <td>Batch B</td>
+          <td>Ms. Gupta</td>
+          <td>72%</td>
+          <td>Pending</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<script>
+  function searchTable() {
+    const input = document.getElementById("searchInput");
+    const filter = input.value.toLowerCase();
+    const table = document.getElementById("studentTable");
+    const tr = table.getElementsByTagName("tr");
+
+    for (let i = 1; i < tr.length; i++) {
+      let show = false;
+      const tds = tr[i].getElementsByTagName("td");
+      for (let j = 0; j < tds.length; j++) {
+        if (tds[j].innerText.toLowerCase().includes(filter)) {
+          show = true;
+          break;
+        }
+      }
+      tr[i].style.display = show ? "" : "none";
+    }
+  }
+</script>

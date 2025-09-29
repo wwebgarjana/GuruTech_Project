@@ -1,0 +1,47 @@
+
+ 
+<div class="apply-jobs-container">
+  <h2>Eligible Job Openings</h2>
+ 
+  <table class="job-table" *ngIf="jobs.length > 0; else noJobs">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Company</th>
+        <th>Description</th>
+        <th>Salary</th>
+        <th>Course</th>
+        <th>Posted On</th>
+        <th>Status / Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let job of jobs">
+        <td>{{ job.title }}</td>
+        <td>{{ job.companyName }}</td>
+        <td>{{ job.description }}</td>
+        <td>{{ job.salaryPackage }}</td>
+        <td>{{ job.course }}</td>
+        <td>{{ job.createdDate | date:'medium' }}</td>
+       <td>
+  <button class="apply-btn"
+          *ngIf="!appliedJobIds.includes(job.id)"
+          (click)="applyJob(job.id)">
+    Apply
+  </button>
+ 
+  <span *ngIf="appliedJobIds.includes(job.id)" class="applied-label">
+    ✔ Applied
+  </span>
+</td>
+ 
+      </tr>
+    </tbody>
+  </table>
+ 
+  <ng-template #noJobs>
+    <p>No eligible jobs available for your course.</p>
+  </ng-template>
+</div>
+ 
+ 

@@ -1,0 +1,26 @@
+
+
+
+<div class="chat-container">
+  <h2>Doubt Chat Panel (Student)</h2>
+
+  <label for="trainerSelect">Choose Your Trainer:</label>
+  <select id="trainerSelect" [(ngModel)]="selectedTrainer" (change)="loadChat()">
+    <option value="">-- Select Trainer --</option>
+    <option *ngFor="let t of trainers" [value]="t">{{ t }}</option>
+  </select>
+
+  <div class="chat-box">
+    <div *ngFor="let msg of messages">
+  <div [ngClass]="msg.sender === 'student' ? 'student-msg' : 'trainer-msg'">
+    <strong>{{ msg.senderName }}:</strong> {{ msg.message }}
+  </div>
+</div>
+
+  </div>
+
+  <div class="chat-input">
+    <input type="text" [(ngModel)]="doubtText" placeholder="Say Hi or ask your doubt..." />
+    <button (click)="sendDoubt()">Send</button>
+  </div>
+</div>

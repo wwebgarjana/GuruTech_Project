@@ -1,0 +1,118 @@
+<div class="admin-payment-container">
+  <h2>Payment (Admin Panel)</h2>
+ 
+  <!-- Summary Cards -->
+  <div class="summary-cards">
+    <div class="card received">
+      Total Received<br>
+      <strong>₹{{ totalReceived }}</strong>
+    </div>
+    <div class="card pending">
+      Pending<br>
+      <strong>₹{{ totalPending }}</strong>
+    </div>
+  </div>
+ 
+  <!-- Filters -->
+  <div class="filters">
+    <div class="filter-group">
+      <label for="idSearch">Search by ID</label>
+      <input
+        type="text"
+        id="idSearch"
+        [(ngModel)]="idSearch"
+        (ngModelChange)="applyFilters()"
+        placeholder="Enter ID"
+      />
+    </div>
+ 
+    <div class="filter-group">
+      <label for="courseSearch">Course</label>
+      <select
+        id="courseSearch"
+        [(ngModel)]="courseSearch"
+        (ngModelChange)="applyFilters()"
+      >
+        <option value="">Select Course</option>
+          <option value="Java">Java Full Stack Devlopement</option>
+    <option value="Python">Python </option>
+    <option value="Angular">Testing</option>
+    <option value="Spring Boot">Spring Boot</option>
+    <option value="React">React(Mern Stack)</option>
+ 
+  </select>
+
+    </div>
+ 
+    <div class="filter-group">
+      <label for="statusFilter">Status</label>
+      <select
+        id="statusFilter"
+        [(ngModel)]="statusFilter"
+        (ngModelChange)="applyFilters()"
+      >
+        <option value="">Select Status</option>
+        <option value="PAID">Paid</option>
+        <option value="PENDING">Pending</option>
+      </select>
+    </div>
+ 
+    <button class="filter-btn" (click)="applyFilters()">Apply Filters</button>
+  </div>
+ 
+  <!-- Payment Table -->
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Student ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Course</th>
+          <th>Amount Paid</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let s of filteredStudents">
+          <td>{{ s.studentId }}</td>
+          <td>{{ s.name }}</td>
+          <td>{{ s.email }}</td>
+          <td>{{ s.course }}</td>
+          <td>
+            <input
+              type="number"
+              [(ngModel)]="amounts[s.studentId]"
+              placeholder="Enter amount"
+            />
+            <span *ngIf="s.amountPaid"> (Paid: ₹{{ s.amountPaid }})</span>
+          </td>
+          <td>{{ s.paymentStatus || 'PENDING' }}</td>
+          <td class="actions">
+            <button
+              (click)="makePayment(s.studentId)"
+              [disabled]="s.paymentStatus === 'PAID'"
+            >
+              Pay
+            </button>
+            <button
+              (click)="downloadPayslip(s.email)"
+              [disabled]="s.paymentStatus !== 'PAID'"
+            >
+              Download Payslip
+            </button>
+          </td>
+          <!-- <button
+  (click)="sendReceipt(s.email)"
+  [disabled]="s.paymentStatus !== 'PAID'">
+  Send Receipt
+</button> -->
+ 
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+ 
+ 

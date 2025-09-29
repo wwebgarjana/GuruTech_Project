@@ -1,0 +1,321 @@
+
+
+
+
+<!-- Carousel Section -->
+<div class="carousel-container">
+  <div
+    class="carousel-track"
+    [style.transform]="'translateX(-' + currentSlide * 100 + '%)'"
+  >
+    <div class="carousel-slide" *ngFor="let slide of slides">
+      <img [src]="slide.src" alt="Slide Image" class="carousel-image" />
+      <h2 class="slide-heading">{{ slide.heading }}</h2>
+    </div>
+  </div>
+
+  <!-- Navigation buttons -->
+  <button class="nav-btn prev" (click)="prevSlide()">&#10094;</button>
+  <button class="nav-btn next" (click)="nextSlide()">&#10095;</button>
+</div>
+
+<!-- Card Section -->
+
+<section class="cards-section">
+  <h2 class="section-title">Explore Our Courses & Opportunities</h2>
+
+  <div class="cards-grid">
+    <div class="card" *ngFor="let card of cards">
+      <div class="card-image">
+        <img [src]="card.image" alt="Card Image" />
+      </div>
+      <div class="card-content">
+        <h3>{{ card.title }}</h3>
+        <p>{{ card.description }}</p>
+
+        <a [routerLink]="card.link" class="card-btn">Learn More</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ✅ Button centered under all cards -->
+  <div class="brochure-section">
+    <button class="download-btn" (click)="downloadBrochure()">
+      📘 Download Brochure
+    </button>
+  </div>
+</section>
+
+
+<!-- Blog Section -->
+<section class="blog-section">
+  <h2 class="section-title">Unlock Your Future with Career Counselling</h2>
+  <div class="blog-container">
+    <div class="blog-content">
+      <p class="blog-description">{{ blog.description }}</p>
+
+      <button class="blog-btn" [routerLink]="['/career-counselling']">
+        Read More
+      </button>
+    </div>
+    <div class="blog-image">
+
+      <img [src]="blog.image" alt="Blog Image" />
+    </div>
+  </div>
+</section>
+
+<!-- Alumni Section -->
+<section class="alumni-section">
+  <h4 class="alumni-subtitle">Our Alumni Placed</h4>
+  <h2 class="alumni-title">Explore Our Alumni & Connect With Them</h2>
+
+  <div class="alumni-marquee">
+    <div class="alumni-track">
+
+      <div class="alumni-card" *ngFor="let alumni of alumniList.concat(alumniList)">
+        <div class="alumni-header">
+          <img [src]="alumni.image" alt="Alumni" class="alumni-img" />
+          <span *ngIf="alumni.hike" class="hike-badge">{{ alumni.hike }}</span>
+        </div>
+        <h3 class="alumni-name">{{ alumni.name }}</h3>
+        <p class="alumni-role">{{ alumni.role }}</p>
+        <p class="alumni-review">{{ alumni.review }}</p>
+        <div class="alumni-company">
+          <span>{{ alumni.from }}</span>
+          <span class="arrow">→</span>
+          <span>{{ alumni.to }}</span>
+        </div>
+        <a href="#" class="alumni-link"> Read full review</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- course section -->
+<div class="homefourthpage-container">
+  <div class="homefourthpage-heading">
+    <p class="homefourthpage-sub-title">A Roadmap For Success</p>
+    <h1>Our Comprehensive curriculum, Designed for professionals</h1>
+  </div>
+
+  <div class="homefourthpage-content">
+    <div class="homefourthpage-left">
+      <h3>Course Description</h3>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus ipsum laborum </p>
+
+      <div class="homefourthpage-accordion">
+        <button>Unit 0 - Foundation Of Programming</button>
+        <button>Unit 1 - Data Structures and Algorithms</button>
+        <button>Unit 2 - System Design in Depth</button>
+        <button>Unit 3 - Advance DS & Algorithms</button>
+        <button>Unit 4 - Electives & Specialization</button>
+        <button>Unit 5 - End to End Projects With Startups</button>
+      </div>
+
+      <button class="homefourthpage-brochure-btn">⬇ Download Brochure</button>
+    </div>
+
+    <div class="homefourthpage-right">
+  <img src="girl.jpg" alt="Girl working" />
+  
+  <form id="counsellingForm" (ngSubmit)="submitForm()" #formRef="ngForm" class="homefourthpage-form">
+    <input type="text" name="fullName" placeholder="Enter Full Name" [(ngModel)]="student.fullName" required />
+    <input type="email" name="email" placeholder="Enter email address" [(ngModel)]="student.email" required />
+    <input type="tel" name="phone" placeholder="Enter phone number" [(ngModel)]="student.phone" required />
+    <select name="course" [(ngModel)]="student.course" required>
+      <option value="">Select Course</option>
+      <option value="Web Development">Web Development</option>
+      <option value="Digital Marketing">Digital Marketing</option>
+      <option value="UI/UX Design">UI/UX Design</option>
+    </select>
+    <input type="datetime-local" name="appointment" [(ngModel)]="student.appointment" required />
+
+    <p class="homefourthpage-terms">
+      By submitting the form, you agree to our Terms and Conditions and our Privacy Policy.
+    </p>
+
+    <button type="submit" class="homefourthpage-submit-btn">Apply for Course</button>
+  </form>
+</div>
+
+
+
+
+
+
+  </div>
+</div>
+
+<!--fifthpage-->
+<div class="homefourthpage-container">
+  <section class="projects-section">
+    <div class="projects-left">
+      <h2>Hands-on Projects</h2>
+      <p>
+        Find out how our Mentor transformed their careers by giving Hands on Projects.
+      </p>
+
+      <div class="stats-container">
+        <div class="stat green">
+          <span>10+</span><br />Projects
+        </div>
+        <div class="stat purple">
+          <span>08+</span><br />Domains
+        </div>
+      </div>
+
+      <div class="arrow-buttons">
+        <button>&larr;</button>
+        <button>&rarr;</button>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <h4>Authentication</h4>
+      <div class="company-logos">
+        <img src="microsoft.png" alt="Symantec" />
+        <img src="google.png" alt="Cisco" />
+      </div>
+      <p class="project-desc">
+        Create authentication technology to give access, Correspond to those stored in a database of authorized users.
+      </p>
+      <div class="tools">
+        <strong>Tools:</strong>
+        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968322.png" alt="React" />
+        <img src="https://cdn-icons-png.flaticon.com/512/919/919836.png" alt="MongoDB" />
+        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968292.png" alt="NodeJS" />
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- Section: Highlights & Fees -->
+<div class="highlight-fee-section">
+  <div class="highlight-box">
+    <h4>Course Highlights</h4>
+    <ul>
+      <li>📘 150+ Live sessions</li>
+      <li>💼 10+ Industry Projects</li>
+      <li>🕒 1 Year accessibility</li>
+      <li>🛠 Live project experience</li>
+    </ul>
+  </div>
+
+  <div class="fees-box">
+    <h4>Course Fees</h4>
+    <p>
+      We are driven by the idea of program affordability. So, we give you several financial options to manage and budget the expenses of <strong>your course</strong>.
+    </p>
+    <h3>Starting at ₹ 3,500 + GST</h3>
+    <button class="apply-btn">Apply Now</button>
+  </div>
+</div>
+
+<!-- Section: Cohort -->
+<div class="cohort-section">
+  <div class="batch-card">
+    <h3>Next Cohort Details</h3>
+    <div class="batch-header">
+      <div class="batch-date">
+        <div class="day">19</div>
+        <div class="month">Dec</div>
+      </div>
+      <div class="batch-info">
+        <h3 class="batch-title">Weekend Batch [Sat - Sun]</h3>
+      </div>
+      <div class="batch-action">
+        <button class="enroll-button">Enroll Now</button>
+      </div>
+    </div>
+
+    <div class="batch-details">
+      <div class="detail-item">
+        <span class="label">Batch</span>
+        <span class="value">Morning</span>
+      </div>
+      <div class="detail-item">
+        <span class="label">Time</span>
+        <span class="value">09:00 am - 12:00 pm</span>
+      </div>
+      <div class="detail-item">
+        <span class="label">Seat</span>
+        <span class="value">Available</span>
+      </div>
+      <div class="detail-item">
+        <span class="label">Venue</span>
+        <span class="value">Virtual Hall</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="homesixthpage">
+  <p class="subtitle">DISCOVER OUR MENTORS</p>
+  <h2 class="title">
+    We have Industry Experts as Mentor who guide you with<br />
+    <strong>Career Planning & Interview Preparation</strong>
+  </h2>
+
+  <div class="cards">
+ 
+<!-- Mentor 1 -->
+    <div class="card">
+      <img src="mentor.png" alt="Mentor 2">
+      <div class="info">
+        <h4>Vidyadhar Tejankar</h4>
+        <p>Managing Director</p>
+        <p>Founder and Director, Guru Technology</p>
+        <div class="company">
+         
+        </div>
+        <a href="#" class="linkedin-btn" target="_blank">🔗 View Profile</a>
+      </div>
+    </div>
+
+       <!-- Mentor  2-->
+ <div class="card">
+      <img src="mentor.png" alt="Mentor 1">
+      <div class="info">
+        <h4>Vaibhav Kakde</h4>
+        <p>NET, JRF, PhD qualified, SSC CGL, MPSC mains Qualified. All exam counselling for 2 years on Shriram coaching classes Pune</p>
+        <div class="company">
+          
+        </div>
+        <a href="#" class="linkedin-btn" target="_blank">🔗 View Profile</a>
+      </div>
+    </div>
+
+
+    <!-- Mentor 3 -->
+    <div class="card">
+      <img src="mentor.png" alt="Mentor 3">
+      <div class="info">
+        <h4>Narsingh Muley</h4>
+        <p>Full-Stack Developer</p>
+        <div class="company">
+        
+        </div>
+        <a href="#" class="linkedin-btn" target="_blank">🔗 View Profile</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ✅ FAQ Section -->
+<div class="faq-section">
+  <h2 class="faq-title">Frequently Asked Questions</h2>
+
+  <div class="faq-item" *ngFor="let faq of faqs; let i = index" [class.active]="faq.open">
+    <button class="faq-question" (click)="toggleFAQ(i)">
+      {{ faq.question }}
+      <span>{{ faq.open ? '−' : '+' }}</span>
+    </button>
+    <div class="faq-answer" *ngIf="faq.open">
+      <p>{{ faq.answer }}</p>
+    </div>
+  </div>
+</div>
+
+

@@ -1,0 +1,46 @@
+
+
+<div class="assignments-upload-form">
+  <h2>Upload Assignment</h2>
+
+  <form (ngSubmit)="submitAssignment()" [formGroup]="assignmentForm">
+    <!-- Topic -->
+    <label>Topic</label>
+    <input type="text" formControlName="topic" placeholder="Assignment Topic" required /><br />
+<!-- Batch Dropdown -->
+<label>Batch</label>
+<select formControlName="batch" required>
+  <option value="">Select Batch</option>
+  <option *ngFor="let b of assignedBatches" [value]="b">{{ b }}</option>
+</select><br/>
+
+<!-- Course Dropdown -->
+<label>Course</label>
+<select formControlName="course" required>
+  <option value="">Select Course</option>
+  <option *ngFor="let c of assignedCourses" [value]="c">{{ c }}</option>
+</select><br/>
+
+    <!-- Description -->
+    <label>Description</label>
+    <textarea formControlName="description" placeholder="Description" required></textarea><br />
+
+    <!-- Due Date -->
+   <label>Due Date</label>
+<input type="date" formControlName="dueDate" required [min]="minDate"/><br />
+<div *ngIf="assignmentForm.get('dueDate')?.hasError('invalidDate') && assignmentForm.get('dueDate')?.touched" style="color:red;">
+  ❌ Due date must be today or a future date!
+</div>
+
+
+    <!-- File Input -->
+    <label>File</label>
+    <input type="file" (change)="onFileChange($event)" #fileInput required /><br />
+
+    <!-- Upload Button -->
+    <button type="submit">Upload Assignment</button>
+  </form>
+</div>
+
+<hr />
+

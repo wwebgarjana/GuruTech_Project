@@ -1,0 +1,59 @@
+<div class="student-feedback">
+  <h2>Submit Lecture Feedback</h2>
+
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+    <div>
+  <label>Student Name</label>
+  <input name="studentName" [(ngModel)]="model.studentName" readonly />
+</div>
+
+<div>
+  <label>Student ID</label>
+  <input name="studentId" [(ngModel)]="model.studentId" readonly />
+</div>
+
+
+    <div>
+      <label>Batch</label>
+      <select name="batch" [(ngModel)]="model.batch" required>
+        <option value="">-- Select Batch --</option>
+        <option *ngFor="let b of assignedBatches" [value]="b">{{ b }}</option>
+      </select>
+    </div>
+
+    <div>
+      <label>Course</label>
+      <select name="course" [(ngModel)]="model.course" required>
+        <option value="">-- Select Course --</option>
+        <option *ngFor="let c of assignedCourses" [value]="c">{{ c }}</option>
+      </select>
+    </div>
+
+    <div>
+      <label>Lecture Title</label>
+      <input name="lectureTitle" [(ngModel)]="model.lectureTitle" required />
+    </div>
+
+    <div>
+      <label>Rating</label>
+      <select name="rating" [(ngModel)]="model.rating" required>
+        <option [value]="5">⭐⭐⭐⭐⭐ Excellent</option>
+        <option [value]="4">⭐⭐⭐⭐ Very Good</option>
+        <option [value]="3">⭐⭐⭐ Good</option>
+        <option [value]="2">⭐⭐ Fair</option>
+        <option [value]="1">⭐ Poor</option>
+      </select>
+    </div>
+
+    <div>
+      <label>Comments</label>
+      <textarea name="comments" [(ngModel)]="model.comments" rows="4" required></textarea>
+    </div>
+
+    <div>
+      <button type="submit" [disabled]="submitting">Submit Feedback</button>
+    </div>
+  </form>
+
+  <p *ngIf="message">{{ message }}</p>
+</div>

@@ -1,0 +1,54 @@
+<div class="internship-container">
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Learning IT Skills is Easy and Fun 🚀</h1>
+      <p>This is a professional IT training program tailored to industry needs.</p>
+      <button class="cta-btn">Join Now</button>
+      <div class="trusted">
+        <span>🌟 Experienced Trainers</span>
+        <span>✅ 100% Practical</span>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="internship-hero1.png" alt="IT Learning">
+    </div>
+  </section>
+
+  <!-- Internship Roles -->
+  <section>
+    <h2>🎓 Internship Roles Available</h2>
+    <div *ngFor="let role of roles" class="role">
+      <h3>{{ role.title }}</h3>
+      <ul>
+        <li *ngFor="let item of role.items"> {{ item }}</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Who Can Apply -->
+  <section>
+    <h2>🔍 Who Can Apply?</h2>
+    <ul>
+      <li *ngFor="let w of whoCanApply">{{ w }}</li>
+    </ul>
+  </section>
+
+  <!-- Internship Details -->
+  <section>
+    <h2>📅 Internship Details</h2>
+    <ul>
+      <li *ngFor="let d of details">{{ d }}</li>
+    </ul>
+  </section>
+
+  <!-- What You'll Gain -->
+  <section>
+    <h2>🎯 What You'll Gain</h2>
+    <ul>
+      <li *ngFor="let g of gains">{{ g }}</li>
+    </ul>
+  </section>
+
+</div>

@@ -1,0 +1,32 @@
+
+
+
+<div class="assignments-container">
+  <h2>📘 Submitted Assignments</h2>
+
+  <div class="assignment-card" *ngFor="let assignment of submittedAssignments">
+    <p><strong>Title:</strong> {{ assignment.topic }}</p>
+
+    <!-- ✅ Show student info -->
+   <div class="student-info-card">
+  <p > <strong>{{ assignment.studentName }}</strong></p>
+  <p class="student-details">
+    <span>ID: {{ assignment.studentId }}</span> |
+    <span>Email: {{ assignment.studentEmail }}</span>
+  </p>
+</div>
+
+
+    <p *ngIf="assignment.fileUrl || assignment.fileName">
+      <strong>Uploaded File:</strong>
+      <button (click)="downloadFile(assignment.fileUrl, assignment.fileName)">
+        {{ assignment.fileName ? assignment.fileName : 'View file' }}
+      </button>
+    </p>
+  </div>
+
+  <div *ngIf="submittedAssignments.length === 0">
+    ✅ No submitted assignments available
+  </div>
+</div>
+

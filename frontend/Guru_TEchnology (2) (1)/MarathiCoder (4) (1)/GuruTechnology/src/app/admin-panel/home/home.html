@@ -1,0 +1,112 @@
+<div class="dashboard-wrapper">
+  <div class="dashboard">
+    <!-- Top Section -->
+    <div class="top-section">
+      
+      <!-- Revenue Card -->
+      <div class="card revenue">
+        <h4>Revenue</h4>
+        <h2>IDR 7.852.000</h2>
+        <p class="green">⬆ 2.1% vs last week</p>
+        <p class="subtext">enroll from 1-12 Dec, 2025</p>
+        <canvas baseChart
+          [data]="revenueData"
+          [options]="revenueOptions"
+          chartType="bar"
+          height="90">
+        </canvas>
+        <button class="report-btn">View Report</button>
+      </div>
+
+      <!-- Class Time -->
+      <div class="card class-time">
+        <h4>class Time</h4>
+        <p class="subtext">From 1–6 Dec, 2025</p>
+        <div class="donut-container">
+          <canvas baseChart
+            [data]="classTimeData"
+            chartType="doughnut"
+            height="100">
+          </canvas>
+          <div class="donut-legend">
+            <span><span class="dot afternoon"></span>Afternoon 40%</span>
+            <span><span class="dot evening"></span>Evening 32%</span>
+            <span><span class="dot morning"></span>Morning 28%</span>
+          </div>
+        </div>
+        <button class="report-btn">View Report</button>
+      </div>
+    </div>
+
+    <!-- Bottom Section -->
+    <div class="bottom-section">
+      
+      <!-- Total Enrolled -->
+   <!-- Total Enrolled -->
+<div class="card total-enrolled">
+  <h4>Total Enrolled</h4>
+  <p class="subtext">Lorem ipsum dolor sit amet, consectetur</p>
+  <div class="bubble-chart">
+
+    <!-- .NET Bubble -->
+    <div class="bubble dotnet" onclick="toggleTooltip(this)">
+      <canvas baseChart [data]="enrolledDotNet" [type]="'pie'" [options]="bubbleChartOptions"></canvas>
+      <div class="label">
+        <span>92%</span>
+        <small>.NET</small>
+      </div>
+      <div class="tooltip">.NET: 92% Enrolled</div>
+    </div>
+
+    <!-- Python Bubble -->
+    <div class="bubble python" onclick="toggleTooltip(this)">
+      <canvas baseChart [data]="enrolledPython" [type]="'pie'" [options]="bubbleChartOptions"></canvas>
+      <div class="label">
+        <span>85%</span>
+        <small>Python</small>
+      </div>
+      <div class="tooltip">Python: 85% Enrolled</div>
+    </div>
+
+    <!-- Java Bubble -->
+    <div class="bubble java" onclick="toggleTooltip(this)">
+      <canvas baseChart [data]="enrolledJava" [type]="'pie'" [options]="bubbleChartOptions"></canvas>
+      <div class="label">
+        <span>85%</span>
+        <small>JAVA</small>
+      </div>
+      <div class="tooltip">Java: 85% Enrolled</div>
+    </div>
+
+  </div>
+</div>
+
+
+      <!-- Upcoming Courses -->
+      <div class="card upcoming">
+        <h4>Upcoming Courses <span class="edit">Edit</span></h4>
+        <ul>
+          <li *ngFor="let course of courses">
+            <span class="circle"></span>{{ course.name }}
+            <span class="amount">{{ course.price }}</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Payment Chart -->
+      <div class="card payment">
+        <h4>Payment</h4>
+        <h2>2.568</h2>
+        <p class="red">⬇ 2.1% vs last week</p>
+        <p class="subtext">Sales from 1–6 Dec, 2020</p>
+        <canvas baseChart
+          [data]="paymentData"
+          [options]="paymentOptions"
+          chartType="line"
+          height="90">
+        </canvas>
+        <button class="report-btn">View Report</button>
+      </div>
+    </div>
+  </div>
+</div>

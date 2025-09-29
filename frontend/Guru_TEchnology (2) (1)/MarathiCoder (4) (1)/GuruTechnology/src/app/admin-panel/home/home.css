@@ -1,0 +1,322 @@
+.dashboard-wrapper {
+  width: 787px;
+  height: 570px;
+  margin: 0 auto;
+  overflow: hidden;
+  background: #f5f5f5;
+  padding: 10px;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 100%;
+}
+
+.top-section, .bottom-section {
+  display: flex;
+  gap: 10px;
+  height: 50%;
+}
+
+.card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 12px;
+  flex: 1;
+  position: relative;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+h4 {
+  font-size: 14px;
+  margin: 0;
+  font-weight: 500;
+}
+
+h2 {
+  margin: 5px 0;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.green { color: green; font-size: 12px; }
+.red { color: red; font-size: 12px; }
+.subtext { font-size: 11px; color: #777; }
+
+.bar-chart {
+  display: flex;
+  align-items: flex-end;
+  height: 70px;
+  gap: 3px;
+  margin-top: 10px;
+}
+
+.bar {
+  width: 5px;
+  position: relative;
+}
+
+.bar div {
+  width: 100%;
+  border-radius: 2px;
+}
+
+.last-week {
+  background: #ddd;
+}
+
+.last-6-days {
+  background: #3b5bff;
+  position: absolute;
+  bottom: 0;
+}
+
+.report-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #eee;
+  font-size: 11px;
+  border: none;
+  border-radius: 5px;
+  padding: 3px 6px;
+  cursor: pointer;
+}
+
+.donut {
+  height: 100px;
+  background: conic-gradient(#4a63f3 0% 40%, #7e84f3 40% 72%, #a9aef3 72% 100%);
+  border-radius: 50%;
+  margin-top: 10px;
+  position: relative;
+}
+
+.tooltip {
+  font-size: 11px;
+  background: #222;
+  color: #fff;
+  padding: 6px;
+  border-radius: 4px;
+  width: 100px;
+  text-align: center;
+  position: absolute;
+  left: 25px;
+  top: 30px;
+}
+
+.donut-legend {
+  font-size: 10px;
+  margin-top: 5px;
+}
+
+.dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 4px;
+}
+
+.afternoon { background: #4a63f3; }
+.evening { background: #7e84f3; }
+.morning { background: #a9aef3; }
+
+.pie-group {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.pie {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 10px;
+  padding-top: 15px;
+  color: #fff;
+  font-weight: bold;
+}
+
+.pie1 { background: #6c63ff; }
+.pie2 { background: #00bcd4; }
+.pie3 { background: #f7941d; }
+
+.upcoming ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 12px;
+}
+
+.upcoming li {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.circle {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #888;
+  margin-right: 6px;
+  display: inline-block;
+}
+
+.amount {
+  font-weight: 500;
+}
+
+.line-chart {
+  width: 100%;
+  height: 60px;
+  background: linear-gradient(to top right, #d7dfff, #6f86ff);
+  margin-top: 10px;
+}
+.total-enrolled {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.bubble-chart {
+  position: relative;
+  width: 100%;
+  height: 170px;
+  margin-top: 10px;
+}
+
+.bubble {
+  position: absolute;
+  border-radius: 50%;
+  color: #fff;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.bubble span {
+  font-size: 16px;
+}
+
+.bubble small {
+  font-size: 11px;
+  font-weight: normal;
+  margin-top: 2px;
+}
+
+/* Specific styles for each bubble */
+.bubble.dotnet {
+  width: 80px;
+  height: 80px;
+  background-color: #00bcd4;
+  left: 10px;
+  top: 60px;
+}
+
+.bubble.python {
+  width: 70px;
+  height: 70px;
+  background-color: #6c63ff;
+  left: 60px;
+  top: 30px;
+}
+
+.bubble.java {
+  width: 110px;
+  height: 110px;
+  background-color: #f7941d;
+  left: 120px;
+  top: 20px;
+}
+.bubble-chart {
+  position: relative;
+  width: 100%;
+  height: 180px;
+}
+
+.bubble {
+  position: absolute;
+  border-radius: 50%;
+  overflow: hidden;
+  text-align: center;
+  cursor: pointer;
+}
+
+.bubble canvas {
+  width: 100%;
+  height: 100%;
+}
+
+.bubble .label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+  pointer-events: none;
+  text-align: center;
+}
+
+.bubble .label small {
+  display: block;
+  font-size: 10px;
+  font-weight: normal;
+  margin-top: 2px;
+}
+
+.bubble .tooltip {
+  position: absolute;
+  bottom: -35px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #222;
+  color: #fff;
+  font-size: 10px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 1;
+}
+
+.bubble.active .tooltip {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Position & sizing */
+.bubble.dotnet {
+  width: 80px;
+  height: 80px;
+  left: 10px;
+  top: 60px;
+}
+
+.bubble.python {
+  width: 70px;
+  height: 70px;
+  left: 60px;
+  top: 30px;
+}
+
+.bubble.java {
+  width: 110px;
+  height: 110px;
+  left: 120px;
+  top: 20px;
+}

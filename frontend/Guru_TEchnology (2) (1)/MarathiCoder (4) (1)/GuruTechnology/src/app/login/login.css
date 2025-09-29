@@ -1,0 +1,179 @@
+
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #f8f9fa;
+  animation: fadeIn 1s ease-in-out;
+  height: 50vh;
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding-top: 0; 
+  animation: slideIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  animation: slideIn 1s ease-in-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.left {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.left img {
+  max-width: 90%;
+  height: auto;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+.right {
+  flex: 1;
+  max-width: 400px;
+  padding: 20px;
+}
+
+.right h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.right p {
+  color: #888;
+  margin-bottom: 20px;
+}
+
+form input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: 0.3s ease;
+}
+
+form input:focus {
+  border-color: #6c63ff;
+  box-shadow: 0 0 5px #6c63ff50;
+  outline: none;
+}
+
+.options {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.options a {
+  text-decoration: none;
+  color: #6c63ff;
+  transition: color 0.3s ease;
+}
+.options label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+
+.options a:hover {
+  color:#007bff;
+}
+
+button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  background-color:#007bff;
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s;
+}
+
+button[type="submit"]:hover {
+  background-color: #007bff;
+  transform: translateY(-2px);
+}
+
+.login-with {
+  text-align: center;
+  margin: 20px 0;
+  color: #666;
+}
+
+.social {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.social button {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  font-weight: bold;
+  font-size: 18px;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.social button:hover {
+  transform: scale(1.1);
+}
+
+.social .fb {
+  background-color: #3b5998;
+}
+
+.social .tw {
+  background-color: #1da1f2;
+}
+
+.social .gg {
+  background-color: #db4437;
+}
+::placeholder {
+  font-size: 13px; /* You can adjust this (12px, 13px, etc.) */
+  color: #aaa;
+  opacity: 1; /* Ensures visibility */
+}

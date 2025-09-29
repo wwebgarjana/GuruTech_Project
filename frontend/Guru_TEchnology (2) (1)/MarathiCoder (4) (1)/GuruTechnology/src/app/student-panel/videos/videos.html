@@ -1,0 +1,28 @@
+
+
+
+
+<div class="video-container">
+  <h2>🎥 My Course Videos</h2>
+
+  <!-- Loader -->
+  <div *ngIf="loading">⏳ Loading videos...</div>
+
+  <!-- Error -->
+  <div *ngIf="errorMsg" class="error">{{ errorMsg }}</div>
+
+  <!-- Video List -->
+  <div class="video-card" *ngFor="let video of fetchedVideos">
+    <h3><i class="fas fa-book"></i> {{ video.title }}</h3>
+    <p><strong><i class="fas fa-film"></i> Description:</strong> {{ video.description }}</p>
+    <p>
+      <strong><i class="fas fa-link"></i> Video Link:</strong>
+      <a [href]="video.videoUrl" target="_blank">▶ Watch</a>
+    </p>
+  </div>
+
+  <!-- Empty -->
+  <div *ngIf="!loading && fetchedVideos.length === 0 && !errorMsg">
+    ✅ No videos available
+  </div>
+</div>

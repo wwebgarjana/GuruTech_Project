@@ -1,0 +1,131 @@
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="text-section">
+      <p class="subtitle">Online Training</p>
+      <h1>COURSES OF <br />EXCELLENT QUALITY</h1>
+      <p class="desc">
+        Learn skills that transform your career. Explore our curated list of
+        computer and IT courses designed for beginners and professionals.
+      </p>
+      <div class="buttons">
+        <button class="btn secondary">Learn More</button>
+      </div>
+    </div>
+    <div class="image-section">
+      <img src="student.png" alt="Student" />
+    </div>
+    <div class="circle-small"></div>
+    <div class="circle-small2"></div>
+  </div>
+</section>
+
+<!-- ✅ Course Navigation -->
+<div class="course-nav">
+  <h2 class="section-heading">All Courses</h2>
+  <ul>
+    <li *ngFor="let course of courses">
+      <a (click)="scrollToCourse(course.code)">{{ course.title }}</a>
+    </li>
+  </ul>
+</div>
+
+<!-- Zig-Zag Courses Section -->
+<div class="courses-section">
+  <h2 class="section-heading">Course Details</h2>
+
+  <div class="zigzag-container">
+    <div
+      class="zigzag-row"
+      *ngFor="let course of courses; let i = index"
+      [ngClass]="{ 'reverse': i % 2 !== 0 }"
+      [id]="course.code"
+    >
+      <!-- Course Image -->
+      <div class="zigzag-img">
+        <img [src]="course.image" [alt]="course.title" />
+      </div>
+
+      <!-- Course Info -->
+      <div class="zigzag-content">
+        <h3>{{ course.title }}</h3>
+        <p><strong>Duration:</strong> {{ course.duration }}</p>
+        <p><strong>Fees:</strong> {{ course.fees }}</p>
+        <p><strong>Course Code:</strong> {{ course.code }}</p>
+
+        <h4>Highlights:</h4>
+        <ul>
+          <li *ngFor="let point of course.highlights">{{ point }}</li>
+        </ul>
+
+        <button class="enroll-btn" (click)="openForm()">Enroll Now</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Student Registration Form (Initially Hidden) -->
+<div class="student-form-container" [class.show]="showForm">
+  <form>
+    <h2>Student Registration Form</h2>
+
+    <!-- Step 1: Select Category -->
+    <label>Select Category :</label>
+    <select [(ngModel)]="selectedCategory" name="category" (change)="onCategoryChange()">
+      <option value="" disabled selected>Select Category</option>
+      <option value="basic">Basic Courses</option>
+      <option value="it">IT Courses</option>
+      <option value="internship">Internship</option>
+    </select>
+    <br />
+
+    <!-- Step 2: Select Course -->
+
+<label for="course">Select Course :</label>
+<select id="course" name="course" [(ngModel)]="selectedCourse" required>
+  <option *ngFor="let course of filteredCourses" [value]="course.code">
+    {{ course.title }}<span *ngIf="course.duration"> ({{ course.duration }})</span>
+  </option>
+</select>
+
+    <!-- Student Details -->
+    <label>Student name :</label>
+<input type="text" placeholder="First Name" name="firstName" required />
+<input type="text" placeholder="Last Name" name="lastName" required /><br />
+
+
+    <label>Father's name :</label>
+    <input type="text" name="father" /><br />
+
+    <label>Mobile no. :</label>
+    <input type="text" placeholder="+91" />
+
+    <label>Email id :</label>
+    <input type="email" /><br />
+
+    <label>Date of birth :</label>
+    <input type="date" name="dob" /><br />
+
+    <label>Gender :</label>
+    <input type="radio" name="gender" /> Male
+    <input type="radio" name="gender" /> Female<br />
+
+    <label>Education :</label>
+    <input type="text" /><br />
+
+    <label>State :</label>
+    <input type="text" /><br />
+
+    <label>City :</label>
+    <input type="text" /><br />
+
+    <label>Permanent Address :</label>
+    <textarea></textarea><br />
+
+    <label>Current Address :</label>
+    <textarea></textarea><br />
+
+    <button type="submit">Register</button>
+    <button type="button" (click)="closeForm()">Close</button>
+  </form>
+</div>

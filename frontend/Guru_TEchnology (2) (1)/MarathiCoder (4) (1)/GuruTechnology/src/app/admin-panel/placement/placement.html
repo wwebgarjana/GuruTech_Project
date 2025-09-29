@@ -1,0 +1,103 @@
+<div class="job-container">
+  <h2>Job Posting Portal</h2>
+ 
+  <!-- Job Post Form -->
+  <div class="job-form">
+    <h3>Post a New Job</h3>
+    <form (ngSubmit)="addJob()">
+     
+      <label for="title">Job Title</label>
+      <input id="title" type="text" placeholder="Job Title" [(ngModel)]="newJob.title" name="title" required>
+     
+      <label for="companyName">Company Name</label>
+      <input id="companyName" type="text" placeholder="Company Name" [(ngModel)]="newJob.companyName" name="companyName" required>
+     
+      <label for="description">Description</label>
+      <textarea id="description" placeholder="Description" [(ngModel)]="newJob.description" name="description" required></textarea>
+     
+      <label for="salaryPackage">Salary Package</label>
+      <input id="salaryPackage" type="number" placeholder="Salary Package" [(ngModel)]="newJob.salaryPackage" name="salaryPackage" required>
+     
+      <label for="course">Course</label>
+      <input id="course" type="text" placeholder="Course" [(ngModel)]="newJob.course" name="course" required>
+        <label for="course">Link</label>
+      <input id="Link" type="text" placeholder="Link" [(ngModel)]="newJob.link" name="link" required>
+     
+      <button type="submit" class="post-btn">Post Job</button>
+    </form>
+  </div>
+ 
+  <!-- Job List Table -->
+  <div class="job-list">
+    <h3>All Job Posts</h3>
+    <table class="job-table">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Company</th>
+          <th>Description</th>
+          <th>Salary</th>
+          <th>Course</th>
+          <th>Posted On</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let job of jobs">
+          <td>{{ job.title }}</td>
+          <td>{{ job.companyName }}</td>
+          <td>{{ job.description }}</td>
+          <td>{{ job.salaryPackage }}</td>
+          <td>{{ job.course }}</td>
+          <td>{{ job.createdDate | date:'medium' }}</td>
+          <td>
+            <button (click)="deleteJob(job.id)" class="delete-btn">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+ 
+<hr>
+ 
+
+<button (click)="getApplicationsReport()">Show Applications Report</button>
+ 
+<!-- ✅ Applications Report Table -->
+ 
+<div *ngIf="applications.length > 0" class="applications-report-container">
+  <h2>Applications Report</h2>
+  <table class="applications-report-table">
+    <thead>
+      <tr>
+        <th>Job Title</th>
+        <th>Company</th>
+        <th>Student Email</th>
+        <th>Applied Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let app of applications">
+        <td>{{ app.jobTitle }}</td>
+        <td>{{ app.companyName }}</td>
+        <td>{{ app.studentEmail }}</td>
+        <td>{{ app.appliedDate | date:'medium' }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+ 
+ 
+  <!-- Section 3: View Placement Partners -->
+  <div class="placement-card">
+    <h3 class="placement-heading"><i class="fas fa-handshake"></i> Placement Partners</h3>
+    <ul>
+      <li><i class="fas fa-star"></i> TCS</li>
+      <li><i class="fas fa-star"></i> Infosys</li>
+      <li><i class="fas fa-star"></i> Wipro</li>
+      <li><i class="fas fa-star"></i> Capgemini</li>
+    </ul>
+  </div>
+ 

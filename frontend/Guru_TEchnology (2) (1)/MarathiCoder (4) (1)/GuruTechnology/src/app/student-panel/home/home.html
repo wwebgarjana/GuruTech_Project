@@ -1,0 +1,60 @@
+<div class="dashboard">
+  <h1><i class="fas fa-user-graduate"></i> Welcome To Guru Technology</h1>
+ 
+
+  <div *ngIf="loading">Loading assignments...</div>
+  <div *ngIf="error">{{ error }}</div>
+ 
+  <div *ngIf="!loading && !error">
+    <h3>Enrolled Courses</h3>
+ 
+    <div class="card-container">
+      <div class="assignment-card" *ngFor="let a of filteredAssignments">
+        <h4><i class="fa fa-user-graduate"></i> Student: {{ a.studentId }}</h4>
+        <p><strong>Trainer ID:</strong> {{ a.trainerId }}</p>
+        <p><strong>Trainer Name:</strong> {{ a.trainerName }}</p>
+        <p><strong>Course:</strong> {{ a.course }}</p>
+        <p><strong>Batch:</strong> {{ a.batches }}</p>
+        <p><strong>Time:</strong> {{ a.timeIn }} - {{ a.timeOut }}</p>
+        <p><strong>Duration:</strong> {{ a.duration }}</p>
+        <p><strong>Description:</strong> {{ a.description }}</p>
+        <p><strong>Assigned Date:</strong> {{ a.assignedDate }}</p>
+      </div>
+    </div>
+  </div>
+ 
+  
+  <div class="section quick-stats">
+   
+    <div class="stats">
+     
+    </div>
+ 
+  
+    <div class="certification-container">
+      <h2><i class="fa-solid fa-certificate"></i> My Certifications</h2>
+      <p *ngIf="message" class="message">{{ message }}</p>
+ 
+      <ul>
+        <li *ngFor="let cert of certificates" class="certificate-card">
+          <h3><i class="fa-solid fa-book-open"></i> {{ cert.course }}</h3>
+          <p>
+            <i class="fa-solid fa-calendar-days"></i>
+            <strong>Issued on:</strong> {{ cert.issueDate }}
+          </p>
+          <a [href]="cert.certificateUrl" download target="_blank" class="download-btn">
+            <i class="fa-solid fa-download"></i> Download Certificate
+          </a>
+        </li>
+      </ul>
+ 
+      <ng-template [ngIf]="certificates.length === 0 && !message">
+        <p>No certificates available.</p>
+      </ng-template>
+    </div>
+  </div>
+ 
+  
+</div>
+ 
+ 

@@ -1,0 +1,36 @@
+.certification-container {
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+.certification-container h2 {
+  text-align: center;
+  color:#2b4f81;
+  margin-bottom: 25px;
+}
+
+.certificate-card {
+  border: 1px solid #ddd;
+  margin-bottom: 15px;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.download-btn {
+  display: inline-block;
+  margin-top: 10px;
+  background-color:  #004080;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+.download-btn:hover {
+  background: #0066cc;
+}
+
+li{
+    text-decoration: none;
+}

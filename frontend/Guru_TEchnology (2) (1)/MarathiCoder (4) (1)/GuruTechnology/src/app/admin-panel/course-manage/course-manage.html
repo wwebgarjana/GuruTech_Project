@@ -1,0 +1,119 @@
+<div class="container">
+  <h2>Assign Trainer to Student</h2>
+
+  <!-- Student Dropdown -->
+  <div class="form-group">
+    <label>Select Student:</label>
+    <select [(ngModel)]="selectedStudent" (change)="onStudentChange()">
+      <option *ngFor="let s of students" [ngValue]="s">
+        {{ s.studentId }} - {{ s.studentName }} ({{ s.studentEmail }})
+      </option>
+    </select>
+  </div>
+
+  <!-- Autofilled Fields (Read-only) -->
+  <div class="form-group">
+    <label>Student ID:</label>
+    <input type="text" [(ngModel)]="studentId" readonly />
+  </div>
+  <div class="form-group">
+    <label>Student Name:</label>
+    <input type="text" [(ngModel)]="studentName" readonly />
+  </div>
+  <div class="form-group">
+    <label>Student Email:</label>
+    <input type="text" [(ngModel)]="studentEmail" readonly />
+  </div>
+
+  <!-- Trainer Dropdown -->
+  <div class="form-group">
+    <label>Select Trainer:</label>
+    <select [(ngModel)]="trainerId" (change)="loadTrainerAssignments()">
+      <option value="">Select Trainer</option>
+      <option *ngFor="let t of trainers" [value]="t.trainerId">{{ t.trainerId }}</option>
+    </select>
+  </div>
+
+  <!-- Course Dropdown -->
+  <div class="form-group">
+    <label>Course:</label>
+    <select [(ngModel)]="course">
+      <option value="">Select Course</option>
+      <option *ngFor="let c of assignedCourses" [value]="c">{{ c }}</option>
+    </select>
+  </div>
+
+  <!-- Batch Dropdown -->
+  <div class="form-group">
+    <label>Batch:</label>
+    <select [(ngModel)]="batch">
+      <option value="">Select Batch</option>
+      <option *ngFor="let b of assignedBatches" [value]="b">{{ b }}</option>
+    </select>
+  </div>
+
+  <!-- Time In / Time Out -->
+  <div class="form-group">
+    <label>Time In:</label>
+    <input type="time" [(ngModel)]="timeIn" (change)="updateMinTimeOut()" required />
+  </div>
+  <div class="form-group">
+    <label>Time Out:</label>
+    <input type="time" [(ngModel)]="timeOut" (change)="validateTime()" required />
+  </div>
+  <div *ngIf="timeError" style="color:red;">Time Out should be later than Time In.</div>
+
+  <!-- Duration -->
+  <div class="form-group">
+    <label>Duration:</label>
+    <input type="text" [(ngModel)]="duration" placeholder="e.g. 6 Months or 2h 30m" />
+  </div>
+
+  <!-- Description -->
+  <div class="form-group">
+    <label>Description:</label>
+    <textarea [(ngModel)]="description" placeholder="Enter session details"></textarea>
+  </div>
+
+  <!-- Submit -->
+  <button (click)="assignTrainer()">Assign Trainer</button>
+
+  <hr />
+
+  <!-- Assignments Table -->
+  <h3>Assignments Table</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Student ID</th>
+        <th>Student Name</th>
+        <th>Student Email</th>
+        <th>Trainer ID</th>
+        <th>Trainer Name</th>
+        <th>Course</th>
+        <th>Batch</th>
+        <th>Time In</th>
+        <th>Time Out</th>
+        <th>Duration</th>
+        <th>Description</th>
+        <th>Assigned Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let a of filteredAssignments">
+        <td>{{ a.studentId }}</td>
+        <td>{{ a.studentName }}</td>
+        <td>{{ a.studentEmail }}</td>
+        <td>{{ a.trainerId }}</td>
+        <td>{{ a.trainerName }}</td>
+        <td>{{ a.course }}</td>
+        <td>{{ a.batch }}</td>
+        <td>{{ a.timeIn }}</td>
+        <td>{{ a.timeOut }}</td>
+        <td>{{ a.duration }}</td>
+        <td>{{ a.description }}</td>
+        <td>{{ a.assignedDate }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,13 @@
+<div class="student-payslip-container">
+  <h2>Download Your Payslip</h2>
+ 
+  <div class="filter-group">
+    <label for="studentEmail">Enter your email:</label>
+    <input type="email" id="studentEmail" [(ngModel)]="studentEmail" placeholder="Your email" />
+    <button (click)="generatePayslip()">Download Payslip</button>
+  </div>
+ 
+
+  <h1 *ngIf="message">{{ message }}</h1>
+</div>
+ 

@@ -1,0 +1,31 @@
+<div class="student-container">
+  <h2>📚 Upcoming Live Classes</h2>
+
+  <!-- Loader -->
+  <div *ngIf="loading">⏳ Loading schedules...</div>
+
+  <!-- Error -->
+  <div *ngIf="errorMsg" class="error-msg">{{ errorMsg }}</div>
+
+  <!-- Schedule List -->
+  <div class="schedule-list" *ngIf="schedules.length > 0">
+    <div class="class-card" *ngFor="let s of schedules">
+      <h4>{{ s.courseName }}</h4>
+      <p><strong>Topic:</strong> {{ s.topicName }}</p>
+      <p><strong>Time:</strong> {{ s.startTime }} - {{ s.endTime }}</p>
+      <p><strong>Date:</strong> {{ s.date }}</p>
+
+      <!-- ✅ Join button with meet link -->
+      <button class="join-btn"
+              [disabled]="!s.meetLink"
+              (click)="joinClass(s.meetLink)">
+        {{ s.meetLink ? 'Join' : 'Link not available' }}
+      </button>
+    </div>
+  </div>
+
+  <!-- Empty state -->
+  <div *ngIf="!loading && schedules.length === 0 && !errorMsg">
+    ✅ No upcoming schedules found
+  </div>
+</div>

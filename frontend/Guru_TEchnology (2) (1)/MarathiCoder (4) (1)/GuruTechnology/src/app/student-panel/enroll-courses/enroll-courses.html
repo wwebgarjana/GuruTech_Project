@@ -1,0 +1,20 @@
+<div *ngIf="loading">Loading assignments...</div>
+<div *ngIf="error">{{ error }}</div>
+ 
+<div *ngIf="!loading && !error">
+  <h3>Enrolled Courses</h3>
+ 
+  <div class="card-container">
+    <div class="assignment-card" *ngFor="let a of filteredAssignments">
+      <h4><i class="fa fa-user-graduate"></i>Student: {{ a.studentId }}</h4>
+      <p> <strong>Trainer ID:</strong> {{ a.trainerId }}</p>
+      <p><strong>Trainer Name:</strong> {{ a.trainerName }}</p>
+      <p><strong>Course:</strong> {{ a.course }}</p>
+      <p><strong>Batch:</strong> {{ a.batches }}</p>
+      <p> <strong>Time:</strong> {{ a.timeIn }} - {{ a.timeOut }}</p>
+      <p> <strong>Duration:</strong> {{ a.duration }}</p>
+      <p><strong>Description:</strong> {{ a.description }}</p>
+      <p><strong>Assigned Date:</strong> {{ a.assignedDate }}</p>
+    </div>
+  </div>
+</div>

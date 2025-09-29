@@ -1,0 +1,71 @@
+<div class="students-container">
+  <h2>Students Management</h2>
+ 
+  <!-- Filters -->
+  <div class="filters">
+    <input
+      type="text"
+      placeholder="Search by name..."
+      [(ngModel)]="searchText"
+      (input)="applyFilters()"
+    />
+ 
+    <select [(ngModel)]="filterCourse" (change)="applyFilters()">
+      <option value="">All Courses</option>
+       
+  <option value="Java">Java Full Stack Devlopement</option>
+    <option value="Python">Python </option>
+    <option value="Angular">Testing</option>
+    <option value="Spring Boot">Spring Boot</option>
+    <option value="React">React(Mern Stack)</option>
+      <!-- Add more courses as needed -->
+    </select>
+ 
+
+    <select [(ngModel)]="filterStatus" (change)="applyFilters()">
+      <option value="">All Status</option>
+      <option>Active</option>
+      <option>Inactive</option>
+    </select>
+ 
+    <button (click)="goToAddStudents()">➕ Add Student</button>
+    <button (click)="goToRevokeStudents()">🗑️ Revoke Student</button>
+  </div>
+ 
+  <!-- Students Table -->
+  <table class="students-table">
+    <thead>
+      <tr>
+        <th>Student ID</th>
+        <th>College ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Mobile</th>
+        <th>Aadhaar</th>
+        <th>Birthdate</th>
+        <th>Address</th>
+        <th>Course</th>
+       
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let student of filteredStudents">
+        <td>{{ student.studentId }}</td>
+        <td>{{ student.collegeId }}</td>
+        <td>{{ student.name }}</td>
+        <td>{{ student.email }}</td>
+        <td>{{ student.mobile }}</td>
+        <td>{{ student.aadhaar }}</td>
+        <td>{{ student.birthdate }}</td>
+        <td>{{ student.address }}</td>
+        <td>{{ student.course }}</td>
+     
+      </tr>
+      <tr *ngIf="filteredStudents.length === 0">
+        <td colspan="11">No students found</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+ 
+ 

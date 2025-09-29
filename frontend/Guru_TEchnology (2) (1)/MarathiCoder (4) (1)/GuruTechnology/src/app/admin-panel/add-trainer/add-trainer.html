@@ -1,0 +1,204 @@
+<div class="add-trainer-form">
+  <h2>Add Trainer</h2>
+  <form #trainerForm="ngForm" (ngSubmit)="submitTrainerForm(trainerForm)" novalidate>
+
+    <label>Trainer ID:</label>
+    <input type="text" name="trainerId" [(ngModel)]="trainer.trainerId" readonly />
+
+    <label>Full Name:</label>
+    <input
+      type="text"
+      name="name"
+      [(ngModel)]="trainer.name"
+      required
+      pattern="^[A-Za-z ]+$"
+      (keypress)="allowOnlyLetters($event)"
+      #name="ngModel"
+    />
+    <div *ngIf="name.invalid && name.touched" class="error">
+      Name must contain only letters and spaces
+    </div>
+
+    <label>Aadhar Card Number:</label>
+    <input
+      type="text"
+      name="aadhaar"
+      [(ngModel)]="trainer.aadhaar"
+      maxlength="12"
+      required
+      pattern="^[0-9]{12}$"
+      (keypress)="allowOnlyDigits($event)"
+      #aadhaar="ngModel"
+    />
+    <div *ngIf="aadhaar.invalid && aadhaar.touched" class="error">
+      Aadhaar must be a 12-digit number
+    </div>
+
+    <label>Mobile Number:</label>
+    <input
+      type="text"
+      name="mobile"
+      [(ngModel)]="trainer.mobile"
+      required
+      maxlength="10"
+      pattern="^[0-9]{10}$"
+      (keypress)="allowOnlyDigits($event)"
+      #mobile="ngModel"
+    />
+    <div *ngIf="mobile.invalid && mobile.touched" class="error">
+      Enter a valid 10-digit mobile number
+    </div>
+<label>Birth Date:</label>
+<input
+  type="date"
+  name="birthdate"
+  [(ngModel)]="trainer.birthdate"
+  required
+  [max]="maxDate"
+  #birthdate="ngModel"
+/>
+<div *ngIf="birthdate.invalid && birthdate.touched" class="error">
+  Birthdate is required
+</div>
+
+    <label>Address:</label>
+    <textarea
+      name="address"
+      [(ngModel)]="trainer.address"
+      required
+      pattern="^[A-Za-z ]+$"
+      (keypress)="allowOnlyLetters($event)"
+      rows="3"
+      #address="ngModel"
+    ></textarea>
+    <div *ngIf="address.invalid && address.touched" class="error">
+      Address must contain only letters and spaces
+    </div>
+
+    <!-- <label>College ID:</label>
+    <input
+      type="text"
+      name="collegeId"
+      [(ngModel)]="trainer.collegeId"
+      required
+      maxlength="10"
+      pattern="^[0-9]{1,10}$"
+      (keypress)="allowOnlyDigits($event)"
+      #collegeId="ngModel"
+    />
+    <div *ngIf="collegeId.invalid && collegeId.touched" class="error">
+      College ID must be numeric and up to 10 digits
+    </div> -->
+
+   <label>Assigned Course:</label>
+  <select [(ngModel)]="trainer.courses" name="courses" required>
+    <option value="" disabled selected>Select Course</option>
+     <option value="Java">Java Full Stack Devlopement</option>
+    <option value="Python">Python </option>
+    <option value="Angular">Testing</option>
+    <option value="Spring Boot">Spring Boot</option>
+    <option value="React">React(Mern Stack)</option>
+ 
+  </select>
+
+    <label>Assigned Batch:</label>
+  <select [(ngModel)]="trainer.batches" name="batches" required>
+    <option value="" disabled selected>Select Batch</option>
+    <option value="Batch A">Batch A</option>
+    <option value="Batch B">Batch B</option>
+    <option value="Batch C">Batch C</option>
+    <option value="Batch D">Batch D</option>
+  </select>
+
+
+    <label>Start Date:</label>
+<input
+  type="date"
+  name="startDate"
+  [(ngModel)]="trainer.startDate"
+  required
+/>
+
+<label>End Date:</label>
+<input
+  type="date"
+  name="endDate"
+  [(ngModel)]="trainer.endDate"
+  required
+/>
+
+
+    <label>Email:</label>
+    <input
+      type="email"
+      name="email"
+      [(ngModel)]="trainer.email"
+      required
+      #email="ngModel"
+    />
+    <div *ngIf="email.invalid && email.touched" class="error">
+      Valid email is required
+    </div>
+
+    <label>Password:</label>
+    <input type="text" name="password" [(ngModel)]="trainer.password" readonly />
+
+    <br /><br />
+    <button type="submit" [disabled]="trainerForm.invalid">Add Trainer</button>
+  </form>
+</div>
+
+<!-- Error Styling -->
+<style>
+  .error {
+    color: red;
+    font-size: 12px;
+  }
+
+  .add-trainer-form {
+    width: 500px;
+    margin: auto;
+    padding: 20px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    font-family: Arial, sans-serif;
+  }
+
+  .add-trainer-form label {
+    display: block;
+    margin-top: 10px;
+  }
+
+  .add-trainer-form input,
+  .add-trainer-form textarea,
+  .add-trainer-form select {
+    width: 100%;
+    padding: 6px;
+    margin-top: 4px;
+    box-sizing: border-box;
+  }
+</style>
+
+<!-- Search by Email -->
+<div class="search-section">
+  <label>Search by Email:</label>
+  <input type="email" [(ngModel)]="searchEmail" name="searchEmail" />
+  <button (click)="fetchTrainer()">Fetch Trainer</button>
+</div>
+
+
+<div *ngIf="fetchedTrainer" class="trainer-profile">
+  <h3>Trainer Profile</h3>
+  <table>
+    <tr><th>Trainer ID</th><td>{{ fetchedTrainer.trainerId }}</td></tr>
+    <tr><th>Name</th><td>{{ fetchedTrainer.name }}</td></tr>
+    <tr><th>Email</th><td>{{ fetchedTrainer.email }}</td></tr>
+    <tr><th>Mobile</th><td>{{ fetchedTrainer.mobile }}</td></tr>
+    <tr><th>Aadhaar</th><td>{{ fetchedTrainer.aadhaar }}</td></tr>
+    <tr><th>College ID</th><td>{{ fetchedTrainer.collegeId }}</td></tr>
+    <tr><th>Course</th><td>{{ fetchedTrainer.courses }}</td></tr>
+    <tr><th>Batch</th><td>{{ fetchedTrainer.batches }}</td></tr>
+    <tr><th>Birthdate</th><td>{{ fetchedTrainer.birthdate }}</td></tr>
+    <tr><th>Address</th><td>{{ fetchedTrainer.address }}</td></tr>
+  </table>
+</div>

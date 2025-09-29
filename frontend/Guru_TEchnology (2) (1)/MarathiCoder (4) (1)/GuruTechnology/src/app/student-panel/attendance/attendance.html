@@ -1,0 +1,43 @@
+
+
+
+
+<!-- 🔍 Filter Section -->
+<div class="filter-section">
+  <h3>Search Attendance</h3>
+  <input type="date" [(ngModel)]="searchDate" placeholder="Search by Date">
+
+  <select [(ngModel)]="searchStatus">
+    <option value="">All</option>
+    <option value="present">Present</option>
+    <option value="absent">Absent</option>
+    <option value="leave">Leave</option>
+  </select>
+
+  <button (click)="applyFilters()">Apply</button>
+  <button (click)="resetFilters()">Reset</button>
+</div>
+
+<!-- Filtered Attendance Table -->
+<div *ngIf="filteredAttendance.length > 0; else noFilteredData">
+  <table border="1" cellpadding="8">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Status</th>
+        <th>Batch</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let record of filteredAttendance">
+        <td>{{ record.date }}</td>
+        <td>{{ record.status }}</td>
+        <td>{{ record.batchName }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<ng-template #noFilteredData>
+  <p>No filtered records found.</p>
+</ng-template>

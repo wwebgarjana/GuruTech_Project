@@ -1,0 +1,140 @@
+.add-trainer-form {
+  max-width: 500px;
+  margin: 30px auto;
+  padding: 25px 30px;
+  border: 2px solid #ccc;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.add-trainer-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #2e3b55;
+}
+
+.add-trainer-form label {
+  display: block;
+  margin-top: 15px;
+  font-weight: 600;
+  color: #333;
+}
+
+.add-trainer-form input,
+.add-trainer-form textarea,
+.add-trainer-form select {
+  width: 100%;
+  padding: 8px 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.add-trainer-form textarea {
+  resize: vertical;
+}
+
+.add-trainer-form button {
+  margin-top: 20px;
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  background-color:#1b4f72;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.add-trainer-form button:hover {
+  background-color: #1b4f72;
+}
+.search-section {
+  margin-top: 40px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+}
+
+.search-section label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.search-section input[type="email"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.search-section button {
+  padding: 10px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.search-section button:hover {
+  background-color: #0056b3;
+}
+.trainer-profile {
+  margin-top: 20px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.trainer-profile h3 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.trainer-profile table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.trainer-profile th,
+.trainer-profile td {
+  padding: 12px 16px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.trainer-profile th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+  color: #333;
+  width: 30%;
+}
+
+.trainer-profile td {
+  color: #555;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+  margin-top: 4px;
+}

@@ -1,0 +1,73 @@
+
+
+<div class="test-container">
+  <h2>📝 Online Test Portal</h2>
+
+  <!-- Loader -->
+  <div *ngIf="loading" class="loading">
+    <p>Loading quizzes...</p>
+  </div>
+
+  <!-- Quiz List -->
+  <div *ngIf="!loading && quizzes.length > 0 && !selectedQuiz && !testSubmitted">
+    <h3>Select a Quiz:</h3>
+    <ul>
+      <li *ngFor="let q of quizzes; let i = index">
+        <strong>{{ q.quizTitle }}</strong>
+        <span *ngIf="q.completed" style="color: gray;">(Completed)</span>
+        <button (click)="selectQuiz(q, i)" [disabled]="q.completed">
+          Take this Quiz
+        </button>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Instructions -->
+  <div *ngIf="selectedQuiz && !testStarted && !testSubmitted">
+    <h3>📌 Instructions:</h3>
+    <ul>
+      <li>Total Questions: {{ selectedQuiz.questions.length }}</li>
+      <li>Time Limit: 30 minutes</li>
+    </ul>
+    <button (click)="startTest()">Start Test</button>
+    <button (click)="goBackToList()">Back to List</button>
+  </div>
+
+  <!-- Quiz Questions -->
+  <div *ngIf="testStarted && selectedQuiz && !testSubmitted">
+    <h3>Question {{ currentQuestionIndex + 1 }} / {{ selectedQuiz.questions.length }}</h3>
+    <p>{{ selectedQuiz.questions[currentQuestionIndex].questionText }}</p>
+    <p><strong>Marks:</strong> {{ selectedQuiz.questions[currentQuestionIndex].marks }}</p>
+
+    <div class="options">
+      <label *ngFor="let opt of selectedQuiz.questions[currentQuestionIndex].options">
+        <input type="radio"
+               [(ngModel)]="selectedQuiz.questions[currentQuestionIndex].selectedAnswer"
+               [value]="opt"> {{ opt }}
+      </label>
+    </div>
+
+    <div class="nav-buttons">
+      <button (click)="prevQuestion()" [disabled]="currentQuestionIndex === 0">Previous</button>
+      <button *ngIf="currentQuestionIndex < selectedQuiz.questions.length - 1" (click)="nextQuestion()">Next</button>
+      <button *ngIf="currentQuestionIndex === selectedQuiz.questions.length - 1" (click)="submitTest()">Submit</button>
+    </div>
+  </div>
+
+  <!-- Results -->
+  <div *ngIf="testSubmitted && selectedQuiz">
+    <h3>✅ Test Completed!</h3>
+    <p>Your Score for <strong>{{ selectedQuiz.quizTitle }}</strong>: <strong>{{ scores[selectedQuizIndex] }}</strong></p>
+
+    <div *ngFor="let q of selectedQuiz.questions; let idx = index">
+      <p>
+        Q{{ idx + 1 }}: {{ q.questionText }}<br>
+        <strong>Marks:</strong> {{ q.marks }} |
+        <strong>Your Answer:</strong> {{ q.selectedAnswer || 'Not Answered' }} |
+        <strong>Correct Answer:</strong> {{ q.correctAnswer }}
+      </p>
+    </div>
+
+    <button (click)="goBackToList()">Back to Quiz List</button>
+  </div>
+</div>

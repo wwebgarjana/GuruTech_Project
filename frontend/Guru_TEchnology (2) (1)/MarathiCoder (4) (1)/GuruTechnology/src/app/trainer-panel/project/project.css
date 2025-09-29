@@ -1,0 +1,109 @@
+/* General page styling */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 20px;
+  color: #333;
+}
+
+/* Upload form container */
+.projects-upload-form {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+  max-width: 500px;
+  margin-left: 20%;
+}
+
+.projects-upload-form h2 {
+  margin-bottom: 15px;
+  color: #007bff;
+}
+
+/* Form inputs */
+.projects-upload-form label {
+  display: block;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.projects-upload-form input,
+.projects-upload-form select,
+.projects-upload-form textarea,
+.projects-upload-form button {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+.projects-upload-form input:focus,
+.projects-upload-form select:focus,
+.projects-upload-form textarea:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+/* Submit button */
+.projects-upload-form button {
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: 0.3s ease;
+}
+
+.projects-upload-form button:hover {
+  background-color: #0056b3;
+}
+
+/* Submitted Projects container */
+.projects-container {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.projects-container h2 {
+  margin-bottom: 15px;
+  color: #28a745;
+}
+
+/* Project card */
+.project-card {
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  margin-bottom: 15px;
+  transition: 0.3s ease;
+}
+
+.project-card:hover {
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+.project-card h3 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.project-card strong {
+  color: #555;
+}
+
+.project-card a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.project-card a:hover {
+  text-decoration: underline;
+}

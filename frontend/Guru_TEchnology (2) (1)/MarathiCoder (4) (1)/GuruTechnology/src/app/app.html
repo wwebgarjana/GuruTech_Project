@@ -1,0 +1,28 @@
+<!-- <app-loader *ngIf="!showContent"></app-loader>
+
+<div *ngIf="showContent"> 
+  
+  <app-navbar *ngIf="!isLoggedIn"></app-navbar>
+
+  <router-outlet></router-outlet>
+
+  
+  <app-footer *ngIf="!isLoggedIn"></app-footer> 
+ </div> -->
+
+<!-- <app-navbar></app-navbar>
+
+<router-outlet></router-outlet>
+
+<app-footer></app-footer> -->
+
+
+
+<app-loader *ngIf="!showContent"></app-loader>
+
+<div *ngIf="showContent" class="app-wrapper">
+  <app-navbar *ngIf="shouldShowNavbar()"></app-navbar>
+  <router-outlet></router-outlet>
+  <app-footer *ngIf="shouldShowFooter()"></app-footer>
+</div>
+

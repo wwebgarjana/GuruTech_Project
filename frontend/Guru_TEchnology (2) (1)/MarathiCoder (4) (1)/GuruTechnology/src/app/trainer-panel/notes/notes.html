@@ -1,0 +1,47 @@
+<div class="notes-upload-form">
+  <h2>Upload Note</h2>
+
+  <form (ngSubmit)="uploadNote()" #noteForm="ngForm">
+    <!-- Title -->
+     <label>Title</label>
+    <input
+      type="text"
+      [(ngModel)]="noteTitle"
+      name="noteTitle"
+      placeholder="Note Title"
+      required
+    /><br />
+ <label>Batch</label>
+    <select [(ngModel)]="selectedBatch" name="selectedBatch" required>
+      <option value="">Select Batch</option>
+      <option *ngFor="let b of assignedBatches" [value]="b">{{ b }}</option>
+    </select><br />
+
+    <!-- Course -->
+    <label>Course</label>
+    <select [(ngModel)]="selectedCourse" name="selectedCourse" required>
+      <option value="">Select Course</option>
+      <option *ngFor="let c of assignedCourses" [value]="c">{{ c }}</option>
+    </select><br />
+    <!-- Description -->
+      <label>Description</label>
+    <textarea
+      [(ngModel)]="noteDesc"
+      name="noteDesc"
+      placeholder="Description"
+      required
+    ></textarea><br />
+
+    <!-- File Input -->
+      <label>File</label>
+    <input
+      type="file"
+      (change)="onFileChange($event)"
+      #fileInput
+      required
+    /><br />
+
+    <!-- Upload Button -->
+    <button type="submit">Upload Note</button>
+  </form>
+</div>
